@@ -402,6 +402,9 @@ body.locked{overflow:hidden}
 .ex-fb.no{color:hsl(0 80% 75%)}
 #qRestart{border:0;cursor:pointer;font:inherit;font-size:14px;font-weight:600;justify-self:start}
 
+.spot-box{display:grid;gap:4px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,rgba(150,135,235,.12),rgba(64,190,175,.08));border:1px solid rgba(255,255,255,.1)}
+.spot-box b{font-size:18px}
+.spot-box p{margin:0;font-size:14px;color:hsl(0 0% 80%);line-height:1.8}
 footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
 
 /* entrance */
@@ -687,9 +690,23 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
       <p class="lead">社团精选的脑科学前沿研究，每期附上一分钟速读和术语解释。</p>
 
       <div class="tiles">
+        <button type="button" class="tile" data-issue="6" style="--c:240,120,90" aria-haspopup="dialog">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6.5" cy="8" r="3.5"/><circle cx="17.5" cy="16" r="3.5"/><path d="M9.5 9.8c2.5 1.2 3.5 2.8 5 4.4"/><path d="M13 6h5v5" /><path d="M18 6l-4 4"/></svg></span>
+          <span class="t-no">第 6 期 · 2026.10.10 <i class="new">NEW</i></span>
+          <span class="t-ttl">不知不觉学会规律：蓝斑核与岛叶</span>
+          <span class="t-tag">Nature Communications · 学习</span>
+          <span class="t-go">阅读 →</span>
+        </button>
+        <button type="button" class="tile" data-issue="5" style="--c:150,135,235" aria-haspopup="dialog">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span>
+          <span class="t-no">第 5 期 · 2026.10.10</span>
+          <span class="t-ttl">为什么惊讶时瞳孔会放大？</span>
+          <span class="t-tag">Nature Human Behaviour · 注意与学习</span>
+          <span class="t-go">阅读 →</span>
+        </button>
         <button type="button" class="tile" data-issue="4" style="--c:251,191,36" aria-haspopup="dialog">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></span>
-          <span class="t-no">第 4 期 · 2026.10.10 <i class="new">NEW</i></span>
+          <span class="t-no">第 4 期 · 2026.10.10</span>
           <span class="t-ttl">光遗传学获 2026 诺贝尔奖</span>
           <span class="t-tag">诺贝尔奖 · 光遗传学</span>
           <span class="t-go">阅读 →</span>
@@ -935,6 +952,86 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
   <div class="reader" id="reader" hidden role="dialog" aria-modal="true" aria-label="Brain News 文章">
   <div class="reader-panel" id="readerPanel" tabindex="-1">
     <div class="reader-bar"><span id="readerNo">Brain News</span><div class="reader-nav"><button type="button" class="ghost" id="rPrev">← 上一期</button><button type="button" class="ghost" id="rNext">下一期 →</button><button type="button" class="r-close" id="rClose" aria-label="关闭">✕</button></div></div>
+    <article class="news" data-issue="6" aria-labelledby="n6" hidden>
+          <div class="tags"><span>Nature Communications</span><span>内隐学习</span><span>fMRI</span><span>瞳孔</span></div>
+          <h3 id="n6"><small>马克斯·普朗克人类发展研究所等 · 2025 年发表</small>不知不觉中学会规律：蓝斑核与岛叶的“联手”</h3>
+          <p class="tldr"><b>一分钟速读</b>很多规律我们是在没意识到的情况下学会的：见得多了，对常见的东西反应就更快，对少见的东西更警觉，这叫内隐学习。研究发现，它和大脑里两个区域的配合有关：一个是负责“发现异常”的前岛叶，一个是脑干里释放去甲肾上腺素的蓝斑核。前岛叶越活跃、蓝斑核结构越完好、瞳孔反应越大的人，学得越好。年轻人和老年人都是这样。</p>
+          <ol class="chain">
+            <li><b>找不同任务</b>屏幕上出现三种角度的条纹，常见方向占 70%，两种罕见方向各占 15%。参与者按方向按键，没人告诉他们这些比例。</li>
+            <li><b>多种测量</b>77 名男性参与者（39 名年轻人、38 名老年人），用特殊的磁共振测蓝斑核结构，同时记录功能磁共振、瞳孔和脑电。</li>
+            <li><b>岛叶先动</b>罕见刺激让瞳孔放大、前岛叶激活。蓝斑核和前岛叶的活动同步起伏，岛叶最多领先约 4 秒，作者推测是岛叶在“呼叫”蓝斑核。</li>
+            <li><b>学得更好</b>前岛叶激活更强、蓝斑核结构更完好、瞳孔反应更大的人，对常见和罕见刺激的反应速度区分得更明显。</li>
+          </ol>
+          <div class="terms">
+            <span><b>内隐学习</b>没有意识到、却学会了规律</span>
+            <span><b>前岛叶</b>藏在外侧沟深处，参与觉察“重要的意外”</span>
+            <span><b>功能磁共振</b>fMRI，通过血流变化看脑区活动</span>
+          </div>
+          <div class="spot-box">
+            <span class="ex-k">研究者小档案</span>
+            <b>Tiantian Li</b>
+            <p>本研究的第二作者。第一作者为 Martin J. Dahl，合作者包括 Mara Mather 和 Markus Werkle-Bergner。和第 5 期一样，这项研究也把瞳孔当作观察蓝斑核—去甲肾上腺素系统的“窗户”，这正是 Tiantian Li 的主要研究方向。</p>
+          </div>
+          <p class="caveat"><b>要注意</b>参与者只有男性；结果是相关关系，不能直接说明因果；蓝斑核很小，现有磁共振分辨率对它来说仍然偏粗；瞳孔大小也会受其他神经递质影响。</p>
+          <a class="paper" href="https://pubmed.ncbi.nlm.nih.gov/40655002" target="_blank" rel="noopener">论文信息：PubMed 40655002 ↗</a>
+          <details class="full">
+            <summary>阅读全文</summary>
+            <div class="article">
+              <h4>研究问题</h4>
+              <p>大脑会自动统计周围事物出现的频率：常见的东西变得“理所当然”，少见的东西则会引起警觉。这种在没有意识到的情况下学会规律的能力叫内隐学习。脑干里的蓝斑核是大脑主要的去甲肾上腺素来源，被认为和“发现意外”有关；而前岛叶是大脑中负责觉察重要信号的关键区域。两者如何配合支持学习，是这项研究想回答的问题。</p>
+              <h4>实验怎么做</h4>
+              <p>研究招募了 77 名男性参与者，其中 39 名年轻人（20–31 岁）、38 名老年人（约 65–76 岁）。他们完成一个改编的“找不同”任务：屏幕上依次出现 0°、45°、90° 三种角度的条纹，参与者要尽快按下对应的按键。其中一种方向最常见，占 70%；另外两种罕见方向各占 15%，其中一种在此前的恐惧条件反射环节里曾和轻微电击配对。参与者没有被告知这些比例。任务连续进行两天。</p>
+              <p>研究者用对神经调质敏感的结构磁共振估计蓝斑核的完整程度，用功能磁共振配合瞳孔测量观察脑区活动，另外还记录了脑电，并把结果和公开的神经递质转运体分布图做了比较。</p>
+              <h4>主要发现</h4>
+              <p>罕见刺激，尤其是曾和电击配对的那一种，会让瞳孔明显放大，并激活包括双侧前岛叶、扣带回中部和丘脑在内的一组脑区。和瞳孔大小同步变化的脑活动，在空间分布上与去甲肾上腺素转运体的分布最吻合。</p>
+              <p>蓝斑核的活动与前岛叶、丘脑同步起伏；时间上，前岛叶的活动最多领先蓝斑核约 4 秒，作者据此推测岛叶可能在调动去甲肾上腺素系统。随着任务进行，参与者对常见刺激反应越来越快，对罕见刺激则相对变慢，说明他们在不知不觉中学会了规律。前岛叶激活更强、蓝斑核结构更完好、瞳孔反应更大的人，这种区分更明显。年轻人和老年人呈现出相似的模式。</p>
+              <h4>局限</h4>
+              <p>研究只包括男性，结论能否推广到女性还需要验证；分析是相关性的，不能直接说明因果方向；蓝斑核体积很小，3 毫米分辨率的功能磁共振对它来说较粗；瞳孔大小也会受到其他神经调质的影响。作者建议未来使用更高场强、更高分辨率的成像做进一步研究。</p>
+              <p class="src">参考：Dahl MJ, Li T, Mather M, Werkle-Bergner M. Locus coeruleus-related insula activation supports implicit learning. Nature Communications, 2025（PubMed 40655002）；预印本 bioRxiv 10.1101/2025.05.10.653174。<br>社团整理撰写</p>
+            </div>
+          </details>
+    </article>
+    <article class="news" data-issue="5" aria-labelledby="n5" hidden>
+          <div class="tags"><span>Nature Human Behaviour</span><span>瞳孔</span><span>EEG</span><span>注意与学习</span></div>
+          <h3 id="n5"><small>布朗大学 Nassar 实验室 · 2026 年 8 月发表</small>为什么惊讶时瞳孔会放大？大脑在按“刷新键”</h3>
+          <p class="tldr"><b>一分钟速读</b>当看到的东西和预期不一样时，你的瞳孔会悄悄放大。这项研究发现，这背后是大脑在判断“情况是不是变了”：脑干里的蓝斑核释放去甲肾上腺素，像按下“刷新键”，让大脑放下旧的预期，更快适应新规律。如果只是偶然的意外，大脑则会选择不去学它。</p>
+          <ol class="chain">
+            <li><b>预测颜色</b>63 名参与者先预测屏幕上方块的颜色，再报告实际看到的颜色，全程记录瞳孔大小和脑电（EEG）。</li>
+            <li><b>两种意外</b>一种是规律真的变了，之后会一直保持新颜色；另一种只是偶尔冒出一个怪颜色，之后规律照旧。</li>
+            <li><b>瞳孔与脑电</b>越像是“情况变了”，瞳孔放大越明显，脑电也出现相应信号；这时人们更少被旧的预期带偏。</li>
+            <li><b>该学还是该忽略</b>规律真变时，唤醒信号伴随更快的学习；只是偶然意外时，则伴随更少的学习。</li>
+          </ol>
+          <div class="terms">
+            <span><b>蓝斑核</b>脑干里释放去甲肾上腺素的小核团</span>
+            <span><b>去甲肾上腺素</b>调节唤醒和注意的神经递质</span>
+            <span><b>唤醒</b>Arousal，大脑的警觉程度</span>
+          </div>
+          <div class="spot-box">
+            <span class="ex-k">研究者小档案</span>
+            <b>Tiantian Li</b>
+            <p>本研究的共同第一作者之一（与 Harrison Marble）。研究期间在布朗大学 Carney 脑科学研究所的 Nassar 实验室工作，现为德国马克斯·普朗克人类发展研究所的博士研究员、马普认知学院博士生，研究蓝斑核—去甲肾上腺素系统如何影响唤醒、注意和学习。本科毕业于波士顿大学神经科学专业。</p>
+          </div>
+          <p class="link-read"><b>和社团的联系</b>我们的脑控游戏用 EEG 读出你的专注度；这项研究告诉我们，瞳孔是另一扇观察大脑唤醒状态的“窗户”。</p>
+          <p class="caveat"><b>要注意</b>瞳孔和脑电只能间接反映蓝斑核的活动，研究并没有直接测量蓝斑核本身。</p>
+          <a class="paper" href="https://www.nature.com/articles/s41562-026-02533-1" target="_blank" rel="noopener">论文原文：Nature Human Behaviour ↗</a>
+          <details class="full">
+            <summary>阅读全文</summary>
+            <div class="article">
+              <h4>研究问题</h4>
+              <p>生活中的意外分两种：一种意味着“世界变了”，比如换了新老师、搬到新城市，旧经验不再适用，需要赶快更新；另一种只是偶然的噪音，比如某天公交车晚点了一次，并不说明以后都会晚点，最好别当回事。大脑怎么区分这两种意外？研究团队认为，答案和大脑的“唤醒系统”有关。</p>
+              <h4>实验怎么做</h4>
+              <p>研究在布朗大学进行，共有 63 名参与者。每一轮，屏幕上会短暂出现两个彩色方块，参与者要报告看到的颜色，再预测下一轮的颜色。实验分成两种环境：在“变化点”环境里，颜色的平均值偶尔会突然改变并一直保持下去；在“离群值”环境里，颜色只是缓慢漂移，偶尔会冒出一个完全随机的颜色，之后又回到原来的规律。研究者全程记录参与者的瞳孔直径和脑电。</p>
+              <h4>主要发现</h4>
+              <p>当一个刺激越可能意味着“情况变了”，参与者的瞳孔放大得越明显，脑电中也出现了相应的信号。伴随这些信号，参与者对旧预期的依赖变小了，看到的颜色更少被自己的预测“带偏”。</p>
+              <p>更有意思的是，同样的唤醒信号在两种环境中指向相反的学习方向：在规律真的改变时，它伴随更快的学习；在只是偶然离群时，它伴随更少的学习。研究者还发现，离群值出现后，参与者在下一次预测时瞳孔会再次放大，这可能代表大脑又“切换回”了原来的状态。</p>
+              <h4>研究意义</h4>
+              <p>研究团队认为，蓝斑核释放的去甲肾上腺素就像一次“刷新”，帮助大脑在情境改变时放下过时的预期、切换到新的心理状态。通讯作者 Matt Nassar 说，这些反应让我们能够应对一个经常从一种情境切换到另一种情境的世界。</p>
+              <h4>局限</h4>
+              <p>瞳孔和脑电只是蓝斑核—去甲肾上腺素系统活动的间接指标。离群值效应出现的时间比预期稍晚，一些脑电成分的作用也还有待进一步研究。</p>
+              <p class="src">参考：Brown University News, 2026-08-05；论文预印本 bioRxiv 10.1101/2025.02.06.636887；研究者信息来自马克斯·普朗克人类发展研究所人员主页。<br>社团整理撰写</p>
+            </div>
+          </details>
+    </article>
     <article class="news" data-issue="4" aria-labelledby="n4" hidden>
           <div class="tags"><span>诺贝尔奖</span><span>光遗传学</span><span>神经技术</span></div>
           <h3 id="n4"><small>2026 诺贝尔生理学或医学奖 · 10 月 5 日揭晓</small>光遗传学终获诺奖：给神经元装上“光控开关”</h3>
@@ -1140,7 +1237,7 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
 
   /* brain news reader */
   const reader=document.getElementById("reader"), rPanel=document.getElementById("readerPanel");
-  const order=["4","3","2","1"]; let cur=null, lastFocus=null;
+  const order=["6","5","4","3","2","1"]; let cur=null, lastFocus=null;
   function openIssue(n){
     cur=n;
     reader.querySelectorAll(".news").forEach(a=>a.hidden=a.dataset.issue!==n);
