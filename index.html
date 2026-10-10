@@ -44,6 +44,15 @@ a{color:inherit}
 .avatar .logo-img{width:100%;height:100%}
 .foot-brand{display:flex;align-items:center;gap:12px}
 .foot-brand .logo-img{width:44px;height:44px}
+.slogan{font-family:var(--f-serif);font-style:italic;font-size:clamp(22px,3vw,30px);color:var(--hero-sub);margin:0 0 14px;letter-spacing:.01em}
+.nn{font-weight:600;color:var(--fg)}
+.slogan-line{margin:4px 0 32px;font-size:clamp(20px,2.6vw,26px);font-weight:600;letter-spacing:-.01em;color:var(--fg)}
+.meaning{max-width:36em;margin:0 0 32px;font-size:14px;line-height:1.8;color:var(--muted)}
+.meaning i{font-style:normal;color:var(--fg)}
+.idline{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 32px;margin:4px 0 32px}
+.idline div{display:flex;align-items:baseline;gap:10px}
+.idline dt{font-size:13px;letter-spacing:.06em;color:var(--muted)}
+.idline dd{margin:0;font-size:20px;font-weight:600;color:var(--fg)}
 /* nav */
 nav.bar{position:relative;z-index:40;display:flex;align-items:center;justify-content:space-between;padding-block:16px}
 .left{display:flex;align-items:center;gap:48px}
@@ -71,7 +80,7 @@ main{position:relative;z-index:1}
 .hero{position:relative;z-index:1;overflow:hidden;min-height:100svh;background:var(--bg)}
 .hero-content{display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:64px;padding-inline:16px;position:relative;z-index:20;will-change:transform,opacity}
 @media (min-width:768px){.hero-content{margin-top:80px}}
-.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;margin-bottom:24px}
+.pill{text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;margin-bottom:24px}
 .pill b{background:var(--fg);color:var(--bg);border-radius:6px;font-size:14px;font-weight:500;padding:2px 8px}
 .pill span{font-size:14px;font-weight:500;color:var(--muted)}
 h1{font-size:clamp(44px,8.5vw,72px);letter-spacing:-.03em;font-weight:500;line-height:1.15;margin:0 0 12px;text-wrap:balance}
@@ -87,7 +96,7 @@ h1 .serif{font-size:1.12em;letter-spacing:0}
 .fade.top{top:0;bottom:auto;height:120px;background:linear-gradient(to bottom,var(--bg),transparent)}
 
 /* HUD (stands in for the dashboard image) */
-.hud{position:absolute;left:50%;top:6%;transform:translateX(-50%);width:90%;max-width:1024px;border-radius:16px;mix-blend-mode:luminosity;background:rgba(10,10,10,.82);border:1px solid rgba(255,255,255,.14);overflow:hidden;z-index:10;will-change:transform}
+.hud{position:absolute;left:50%;top:6%;transform:translateX(-50%);width:90%;max-width:1024px;border-radius:16px;background:rgba(10,10,10,.82);border:1px solid rgba(255,255,255,.14);overflow:hidden;z-index:10;will-change:transform}
 .hud-top{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.1);font-size:13px;color:var(--muted)}
 .dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.25)}
 .hud-top .t{color:var(--fg);font-weight:600}
@@ -122,6 +131,23 @@ h1 .serif{font-size:1.12em;letter-spacing:0}
   .bands{height:60px}
   #target{max-height:200px}
 }
+
+.cr-grid{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:1px;background:rgba(255,255,255,.08)}
+.cr-board{position:relative;background:rgba(6,8,12,.94)}
+#crCanvas{display:block;width:100%;height:400px;cursor:crosshair;touch-action:none}
+.cr-over{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
+.cr-over b{font-size:24px;font-weight:600}
+.cr-over span{color:hsl(0 0% 80%);max-width:26em}
+.cr-over .dl{border:0;cursor:pointer;font:inherit;font-size:14px;font-weight:600}
+.cr-side{gap:12px}
+.cr-goal{margin:0;font-size:14px;line-height:1.7;color:hsl(0 0% 85%)}
+.cr-legend{display:grid;gap:6px;font-size:13px;color:var(--muted)}
+.cr-legend span{display:flex;align-items:center;gap:8px}
+.cr-legend i{width:10px;height:10px;flex:none;border:1.5px solid}
+.cr-legend i.ex{border-radius:50%;border-color:rgb(64,190,175);background:rgba(64,190,175,.5)}
+.cr-legend i.in{transform:rotate(45deg);border-color:rgb(236,112,150);background:rgba(236,112,150,.5)}
+.cr-side .ghost{align-self:flex-start;margin-top:auto}
+@media (max-width:760px){.cr-grid{grid-template-columns:1fr}#crCanvas{height:320px}.stage{min-height:900px}}
 
 /* sections */
 section{position:relative}
@@ -215,6 +241,11 @@ section{position:relative}
 .bee-tip{margin:0;font-size:15px;color:hsl(0 0% 80%)}
 .bee-tip b{color:var(--fg);margin-right:10px}
 details.toc{border-top:1px solid var(--border);padding-top:16px}
+details.route-wrap .route{margin-top:14px}
+.guide-in{display:grid;gap:20px;margin-top:18px}
+.guide-more{border-top:1px solid var(--border)}
+details.pair{padding-block:20px 8px}
+details.pair > .hint,details.pair > .tbl{margin-top:10px}
 details.toc summary{cursor:pointer;font-weight:500;list-style:none;display:inline-flex;align-items:center;gap:8px}
 details.toc summary::-webkit-details-marker{display:none}
 details.toc summary::after{content:"+";color:var(--muted)}
@@ -230,7 +261,7 @@ details.toc[open] summary::after{content:"−"}
 .dl{background:var(--fg);color:var(--bg);border-radius:999px;padding:9px 18px;font-size:14px;font-weight:600;text-decoration:none;transition:opacity .2s;white-space:nowrap}
 .dl:hover{opacity:.85}
 .hint{font-size:13px;color:var(--muted)}
-.pair{padding-block:40px 8px;border-top:1px solid var(--border);display:grid;gap:8px}
+.pair{border-top:1px solid var(--border)}
 .pair .tbl table{min-width:420px}
 .more{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
 .more a{font-size:14px;text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:2px}
@@ -327,9 +358,12 @@ body.locked{overflow:hidden}
 .art-zh{font-size:13px;color:var(--muted)}
 .art-submit{border:1px dashed var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:10px;justify-content:center;text-decoration:none;color:var(--muted);min-height:280px;background:rgba(13,13,13,.5)}
 .art-submit b{color:var(--fg);font-family:var(--f-serif);font-style:italic;font-weight:400;font-size:24px}
-.art-submit:hover{border-color:var(--fg)}
+.art-submit:hover{border-color:rgba(255,255,255,.4)}
 .art-plus{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;font-size:24px;color:var(--fg)}
-.art-go{color:var(--fg);font-size:14px;margin-top:6px}
+.art-go{color:var(--bg);background:var(--fg);font-size:14px;font-weight:600;margin-top:6px;padding:8px 16px;border-radius:999px;text-decoration:none;align-self:flex-start}
+.art-go:hover{opacity:.85}
+.art-mail{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px;color:var(--fg);word-break:break-all}
+.art-tip{font-size:12px;color:var(--muted)}
 .artbox{position:fixed;inset:0;z-index:110;background:rgba(0,0,0,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px 16px;overflow-y:auto}
 .artbox-in{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:28px;align-items:center;width:100%;max-width:1040px}
 #artBig{width:min(100%,calc(84vh * .8));aspect-ratio:4/5;height:auto;border-radius:10px;box-shadow:0 30px 100px rgba(0,0,0,.8);justify-self:center}
@@ -405,6 +439,20 @@ body.locked{overflow:hidden}
 .spot-box{display:grid;gap:4px;padding:16px 18px;border-radius:12px;background:linear-gradient(135deg,rgba(150,135,235,.12),rgba(64,190,175,.08));border:1px solid rgba(255,255,255,.1)}
 .spot-box b{font-size:18px}
 .spot-box p{margin:0;font-size:14px;color:hsl(0 0% 80%);line-height:1.8}
+/* contents */
+#contents{padding-block:72px}
+.toc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
+@media (max-width:900px){.toc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.toc-grid{grid-template-columns:1fr}}
+.toc-card{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;padding:18px;border-radius:16px;text-decoration:none;color:var(--fg);background:rgba(13,13,13,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--border);transition:transform .2s,border-color .2s,box-shadow .2s}
+.toc-card:hover{transform:translateY(-3px);border-color:rgba(var(--c),.6);box-shadow:0 10px 36px rgba(var(--c),.14)}
+.toc-card .ico{margin:0;width:46px;height:46px}
+.toc-txt{display:grid;gap:1px;min-width:0}
+.toc-txt b{font-size:17px;font-weight:600}
+.toc-txt .serif{font-size:16px;color:var(--muted);line-height:1.2}
+.toc-txt small{font-size:13px;color:var(--muted);margin-top:4px}
+.toc-arrow{color:rgb(var(--c));font-size:18px;transition:transform .2s}
+.toc-card:hover .toc-arrow{transform:translateX(4px)}
 footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
 
 /* entrance */
@@ -434,7 +482,6 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
             <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="menu" id="dropMenu" hidden>
-            <a href="#games">百团大战 · 脑控游戏</a>
             <a href="#what">讲座与交流</a>
             <a href="#bee">Brain Bee 备赛</a>
           </div>
@@ -450,10 +497,9 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
   </nav>
 
   <div class="hero-content" id="heroText">
-    <div class="pill liquid-glass in" style="--y:10px;--d:.5s"><b>New</b><span>10.10 百团大战 · 三款脑控小游戏</span></div>
-    <h1 class="in" style="--delay:.1s">光靠“想”，<br>能不能打中 <span class="serif">10</span> 环？</h1>
-    <p class="sub in" style="--delay:.2s">SDSZ 脑科学社用 EEG 脑电和生物反馈算法读出你的专注度。<br>不用鼠标，不用键盘，全凭你的大脑。</p>
-    <a class="cta in" style="--delay:.3s" href="#games">来摊位亲自验证</a>
+    <h1 class="in" style="--delay:.1s">860 亿个神经元，<br>一起读懂它们。</h1>
+    <p class="slogan-line in" style="--delay:.2s">Neuron the Move 🧠</p>
+    <a class="cta in" style="--delay:.3s" href="#contents">开始探索</a>
     <figure class="bq liquid-glass in" style="--delay:.4s" aria-live="polite">
       <span class="bq-k">Brain Quote · 今日一句 · <span id="bqCount"></span></span>
       <blockquote id="bqText"></blockquote>
@@ -464,34 +510,25 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
   <div class="stage in" style="--y:40px;--d:.8s;--delay:.4s">
     <canvas id="field" aria-hidden="true"></canvas>
     <div class="fade top"></div>
-    <div class="hud" id="hud" aria-label="脑控射击游戏演示界面">
-      <div class="hud-top"><div class="dots"><i></i><i></i><i></i></div><span class="t">SDSZ NeuroLab</span><span>脑控射击</span><span class="demo">演示画面</span></div>
-      <div class="hud-grid">
-        <div class="panel">
-          <span class="lbl">专注度 Focus</span>
-          <div class="big"><span id="focusNum">72</span><small> / 100</small></div>
-          <div class="meter"><i id="focusBar" style="width:72%"></i><b style="left:70%"></b></div>
-          <span class="note" id="focusNote">高于阈值 70，准星趋于稳定</span>
-          <div class="bands" id="bands">
-            <div><span style="height:30%"></span><em>δ</em></div>
-            <div><span style="height:35%"></span><em>θ</em></div>
-            <div><span style="height:45%"></span><em>α</em></div>
-            <div><span style="height:70%"></span><em>β</em></div>
-            <div><span style="height:25%"></span><em>γ</em></div>
-          </div>
+    <div class="hud" id="hud">
+      <div class="hud-top"><div class="dots"><i></i><i></i><i></i></div><span class="t">SDSZ NeuroLab</span><span>连锁放电 · Chain Reaction</span><span class="demo" id="crBadge">演示中 · 点一下开始</span></div>
+      <div class="cr-grid">
+        <div class="cr-board">
+          <canvas id="crCanvas" aria-label="神经网络小游戏：点击网络刺激神经元放电"></canvas>
+          <div class="cr-over" id="crOver" hidden><b id="crOverTitle"></b><span id="crOverText"></span><button type="button" class="dl" id="crAgain">再来一局</button></div>
         </div>
-        <div class="panel p-target"><span class="lbl">准星 Crosshair · 你来试试</span><canvas id="target" aria-label="射击靶，移动鼠标瞄准，点击射击"></canvas><span class="aim-hint" id="aimHint">移动鼠标到靶上瞄准，点击射击</span></div>
-        <div class="panel">
-          <span class="lbl">本局 Round</span>
+        <div class="panel cr-side">
+          <span class="lbl">玩法 How to play</span>
+          <p class="cr-goal">你有 <b>3 次</b>刺激机会。点击网络里的任意位置，让附近的神经元放电，看看能引发多大的连锁反应。</p>
           <dl class="stats">
-            <div><dt>上一发</dt><dd id="lastRing">—</dd></div>
-            <div><dt>总环数</dt><dd id="total">0</dd></div>
-            <div><dt>连击</dt><dd id="combo">×0</dd></div>
+            <div><dt>已点亮</dt><dd id="crLit">— / —</dd></div>
+            <div><dt>放电次数</dt><dd id="crSpikes">—</dd></div>
+            <div><dt>剩余刺激</dt><dd id="crLeft">●●●</dd></div>
           </dl>
-          <span class="lbl" style="margin-top:8px">剩余子弹</span>
-          <div class="shots" id="shots"></div>
+          <div class="cr-legend"><span><i class="ex"></i>兴奋性：推动下一个神经元放电</span><span><i class="in"></i>抑制性：给下一个神经元踩刹车</span></div>
+          <p class="note">神经元要收到足够多的输入，膜电位从 −70 mV 升到约 −55 mV 的阈值才会放电；放电后有短暂的不应期。鼠标移到神经元上可以看到它的膜电位。</p>
+          <button type="button" class="ghost" id="crNew">换一个网络 ↻</button>
         </div>
-        <div class="panel eeg"><span class="lbl">EEG · 实时脑电</span><canvas id="trace"></canvas></div>
       </div>
     </div>
     <div class="fade"></div>
@@ -499,6 +536,44 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
 </header>
 
 <main>
+  <section class="block px" id="contents">
+    <div class="inner">
+      <h2 class="h2">目录<span class="serif">Contents</span></h2>
+      <div class="toc-grid">
+        <a class="toc-card" href="#explore" style="--c:64,190,175">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 4A3 3 0 0 0 6.5 7a3 3 0 0 0-2 5.2A3 3 0 0 0 6.5 17a3 3 0 0 0 5.5 1.5V5.5A2.2 2.2 0 0 0 9.5 4zM14.5 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5.2 3 3 0 0 1-2 4.8 3 3 0 0 1-5.5 1.5"/></svg></span>
+          <span class="toc-txt"><b>探索大脑</b><span class="serif">Explore</span><small>点一点大脑和神经元，还有挑战模式</small></span>
+          <span class="toc-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="toc-card" href="#news" style="--c:150,135,235">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>
+          <span class="toc-txt"><b>脑科学新闻</b><span class="serif">Brain News</span><small>前沿研究，一分钟速读</small></span>
+          <span class="toc-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="toc-card" href="#learn" style="--c:251,191,36">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h5v17H6a2 2 0 0 0-2 2zM20 5a2 2 0 0 0-2-2h-5v17h5a2 2 0 0 1 2 2z"/></svg></span>
+          <span class="toc-txt"><b>读书指南</b><span class="serif">Reading Guide</span><small>Brain Facts 与 Exploring the Brain</small></span>
+          <span class="toc-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="toc-card" href="#art" style="--c:236,112,150">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 9V3M14.6 10.5l5-3M14.6 13.5l5 3M12 15v6M9.4 13.5l-5 3M9.4 10.5l-5-3"/></svg></span>
+          <span class="toc-txt"><b>神经元艺术</b><span class="serif">Art of Neurons</span><small>每次打开都不一样的神经元画作</small></span>
+          <span class="toc-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="toc-card" href="#what" style="--c:240,120,90">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.6 6.3L21 9l-5 4.3L17.6 20 12 16.6 6.4 20 8 13.3 3 9l6.4-.7z"/></svg></span>
+          <span class="toc-txt"><b>我们做什么</b><span class="serif">What we do</span><small>讲座、Brain Bee、Brain Day、公益</small></span>
+          <span class="toc-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="toc-card" href="#join" style="--c:120,230,200">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="7.5" r="3.5"/><path d="M19 8v6M22 11h-6"/></svg></span>
+          <span class="toc-txt"><b>加入我们</b><span class="serif">Become a Neuronaut</span><small>联系社长，关注 Instagram</small></span>
+          <span class="toc-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="quote px" id="question">
     <div class="quote-in">
       <div class="qmark" aria-hidden="true">“</div>
@@ -507,39 +582,6 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
         <div class="avatar"><span class="logo-img" aria-hidden="true"></span></div>
         <div><b>SDSZ 脑科学社</b><span>我们想和你一起探讨的问题</span></div>
       </div>
-    </div>
-  </section>
-
-  <section class="block px" id="games">
-    <div class="inner">
-      <h2 class="h2">百团大战<span class="serif">Brain Games</span></h2>
-      <p class="lead">三款游戏都靠 EEG 脑电采集实时读出你的专注度。你越专注，表现越好。</p>
-      <div class="facts">
-        <div class="liquid-glass"><span>时间</span>10.10 · 17:00–18:00</div>
-        <div class="liquid-glass"><span>地点</span>本校操场</div>
-        <div class="liquid-glass"><span>操作</span>不用鼠标，不用键盘</div>
-      </div>
-      <div class="cards">
-        <article class="card">
-          <span class="k">Game 01 · 单人</span>
-          <h3>脑控射击</h3>
-          <p>准星随你的专注度晃动：一分心就抖，一专注就稳。打出 9 环以上还能连击加分。</p>
-          <dl><div><dt>每局</dt><dd>10 发</dd></div><div><dt>连击条件</dt><dd>≥ 9 环</dd></div></dl>
-        </article>
-        <article class="card">
-          <span class="k">Game 02 · 单人</span>
-          <h3>脑控赛车</h3>
-          <p>专注度就是油门：高于阈值就加速，掉下去就倒车。阈值会越来越高，看你三分钟能开多远。</p>
-          <dl><div><dt>时长</dt><dd>3 分钟</dd></div><div><dt>奖杯</dt><dd>1500 / 2600 / 4000 m</dd></div></dl>
-        </article>
-        <article class="card">
-          <span class="k">Game 03 · 双人</span>
-          <h3>双人脑控对决</h3>
-          <p>两人分屏同场竞速，专注度曲线实时同屏对比。带上朋友来，看看谁更“上头”。</p>
-          <dl><div><dt>人数</dt><dd>2 人</dd></div><div><dt>终点</dt><dd>6000 m</dd></div></dl>
-        </article>
-      </div>
-      <p class="prize">打出高分或赢下对战，送 <b>超好吃的清补凉</b>。</p>
     </div>
   </section>
 
@@ -692,42 +734,42 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
       <div class="tiles">
         <button type="button" class="tile" data-issue="6" style="--c:240,120,90" aria-haspopup="dialog">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6.5" cy="8" r="3.5"/><circle cx="17.5" cy="16" r="3.5"/><path d="M9.5 9.8c2.5 1.2 3.5 2.8 5 4.4"/><path d="M13 6h5v5" /><path d="M18 6l-4 4"/></svg></span>
-          <span class="t-no">第 6 期 · 2026.10.10 <i class="new">NEW</i></span>
+          <span class="t-no">第 6 期 <i class="new">NEW</i></span>
           <span class="t-ttl">不知不觉学会规律：蓝斑核与岛叶</span>
           <span class="t-tag">Nature Communications · 学习</span>
           <span class="t-go">阅读 →</span>
         </button>
         <button type="button" class="tile" data-issue="5" style="--c:150,135,235" aria-haspopup="dialog">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span>
-          <span class="t-no">第 5 期 · 2026.10.10</span>
+          <span class="t-no">第 5 期</span>
           <span class="t-ttl">为什么惊讶时瞳孔会放大？</span>
           <span class="t-tag">Nature Human Behaviour · 注意与学习</span>
           <span class="t-go">阅读 →</span>
         </button>
         <button type="button" class="tile" data-issue="4" style="--c:251,191,36" aria-haspopup="dialog">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></span>
-          <span class="t-no">第 4 期 · 2026.10.10</span>
+          <span class="t-no">第 4 期</span>
           <span class="t-ttl">光遗传学获 2026 诺贝尔奖</span>
           <span class="t-tag">诺贝尔奖 · 光遗传学</span>
           <span class="t-go">阅读 →</span>
         </button>
         <button type="button" class="tile" data-issue="3" style="--c:64,190,175" aria-haspopup="dialog">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18h8M3 22h18M14 22a7 7 0 1 0 0-14h-1M9 14h2M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2zM12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg></span>
-          <span class="t-no">第 3 期 · 2026.10.10</span>
+          <span class="t-no">第 3 期</span>
           <span class="t-ttl">2.31 克开源微型显微镜 MIMAS</span>
           <span class="t-tag">Science Advances · 脑成像</span>
           <span class="t-go">阅读 →</span>
         </button>
         <button type="button" class="tile" data-issue="2" style="--c:236,112,150" aria-haspopup="dialog">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h16M12 3l5 13"/><circle cx="17.5" cy="18" r="3"/><path d="M12 3 7 16" stroke-dasharray="2 2"/><circle cx="6.5" cy="18" r="3" stroke-dasharray="2 2"/></svg></span>
-          <span class="t-no">第 2 期 · 2026.10.10</span>
+          <span class="t-no">第 2 期</span>
           <span class="t-ttl">双相障碍基因 Serinc2 的“钟摆”调控</span>
           <span class="t-tag">Molecular Psychiatry · 情绪</span>
           <span class="t-go">阅读 →</span>
         </button>
         <button type="button" class="tile" data-issue="1" style="--c:147,197,253" aria-haspopup="dialog">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 4A3 3 0 0 0 6.5 7a3 3 0 0 0-2 5.2A3 3 0 0 0 6.5 17a3 3 0 0 0 5.5 1.5V5.5A2.2 2.2 0 0 0 9.5 4zM14.5 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5.2 3 3 0 0 1-2 4.8 3 3 0 0 1-5.5 1.5"/></svg></span>
-          <span class="t-no">第 1 期 · 2026.10.09</span>
+          <span class="t-no">第 1 期</span>
           <span class="t-ttl">颅骨骨髓与老年脑外伤的慢性炎症</span>
           <span class="t-tag">Sci Transl Med · 脑损伤</span>
           <span class="t-go">阅读 →</span>
@@ -748,6 +790,9 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
           <div class="meta"><span class="free">免费</span><span>入门 ★☆☆</span><span>建议 4 周</span><span>Brain Bee 备赛</span></div>
           <h3 id="bk1">Brain Facts<small>A Primer on the Brain and Nervous System · Society for Neuroscience · 第 8 版（2018）· 18 章 · 英文</small></h3>
           <p class="one">美国神经科学学会（SfN）写给大众的脑科学入门书。每章只有五到十页，图多、语言浅，非常适合作为第一本书。</p>
+          <details class="toc guide-more">
+            <summary>展开完整指南：读书方法 · 阅读路线 · 社团推荐 · 逐章目录</summary>
+            <div class="guide-in">
           <div class="tips">
             <div><b>先读开头</b>Introduction 里的“8 个核心概念”（Core Concepts）是全书的骨架，后面每章都围绕它们展开。</div>
             <div><b>做术语卡</b>遇到生词查书末的 Glossary，边读边做一份中英对照术语卡。</div>
@@ -796,6 +841,8 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
               </tbody>
             </table></div>
           </details>
+            </div>
+          </details>
           <div class="actions"><a class="dl" href="https://www.brainfacts.org/book" target="_blank" rel="noopener">免费下载 PDF / ePub ↗</a><span class="hint">SfN 官方页面</span></div>
         </div>
       </article>
@@ -807,6 +854,9 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
           <div class="meta"><span>进阶 ★★★</span><span>大学入门教材</span><span>按需选读</span></div>
           <h3 id="bk2">Neuroscience: Exploring the Brain<small>Mark F. Bear, Barry W. Connors, Michael A. Paradiso · 第 4 版 · 25 章 · 约 950 页 · 英文</small></h3>
           <p class="one">很多大学神经科学入门课用的经典教材，图解非常清楚。不需要从头读到尾，把它当成 Brain Facts 的“放大镜”：哪里没看懂、哪里感兴趣，就翻到对应章节深入。</p>
+          <details class="toc guide-more">
+            <summary>展开完整指南：读书方法 · 阅读路线 · 社团推荐 · 全书目录</summary>
+            <div class="guide-in">
           <div class="tips">
             <div><b>Review Questions</b>每章末尾的复习题，读完一章先自测。</div>
             <div><b>Path of Discovery</b>Kandel、Moser 夫妇等著名科学家亲自讲述发现过程，强烈推荐。</div>
@@ -866,13 +916,15 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
               </tbody>
             </table></div>
           </details>
+            </div>
+          </details>
           <div class="actions"><a class="dl" href="https://jblearning.com/catalog/productdetails/9781284286878" target="_blank" rel="noopener">查看出版社页面 ↗</a><span class="hint">请到图书馆借阅或购买正版。最新为第 5 版，章节编排相近，章号可能略有不同。</span></div>
         </div>
       </article>
 
       <!-- Pairing -->
-      <div class="pair">
-        <h4 class="sub-h">两本书对照着读</h4>
+      <details class="toc pair">
+        <summary>两本书对照着读</summary>
         <p class="hint">Brain Facts 某一章没读懂，就翻到 Exploring the Brain（第 4 版）对应的章节。</p>
         <div class="tbl"><table>
           <thead><tr><th>Brain Facts</th><th>Exploring the Brain</th></tr></thead>
@@ -889,8 +941,7 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
             <tr><td>Ch 13 成瘾</td><td>Ch 16 动机</td></tr>
           </tbody>
         </table></div>
-      </div>
-
+      </details>
       <div class="more">
         <span class="picks-h">延伸资源</span>
         <a href="https://www.brainfacts.org/" target="_blank" rel="noopener">BrainFacts.org · 免费科普文章与视频 ↗</a>
@@ -904,12 +955,14 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
       <h2 class="h2">神经元艺术<span class="serif">Art of Neurons</span></h2>
       <p class="lead">一百多年前，卡哈尔用一支笔画出了神经元，也开启了现代神经科学。这里的作品由社团用代码一笔一笔“画”出来，每次打开网页都是独一无二的一幅；点开大图，还能让它再画一幅。</p>
       <div class="art-grid" id="artGrid">
-        <a class="art-submit" href="#join">
+        <div class="art-submit">
           <span class="art-plus" aria-hidden="true">+</span>
           <b>Your art here</b>
           <span>画过神经元、大脑或任何和脑科学有关的作品？欢迎投稿，我们会署名展示。</span>
-          <span class="art-go">联系社长投稿 →</span>
-        </a>
+          <a class="art-go" href="mailto:juliayaxuan.27@gmail.com?subject=Art%20of%20Neurons%20%E6%8A%95%E7%A8%BF&amp;body=%E4%BD%A0%E5%A5%BD%EF%BC%81%E6%88%91%E6%83%B3%E6%8A%95%E7%A8%BF%E5%88%B0%20SDSZ%20%E8%84%91%E7%A7%91%E5%AD%A6%E7%A4%BE%E7%BD%91%E7%AB%99%E7%9A%84%20Art%20of%20Neurons%20%E6%A0%8F%E7%9B%AE%E3%80%82%0A%0A%E5%A7%93%E5%90%8D%EF%BC%9A%0A%E7%8F%AD%E7%BA%A7%EF%BC%9A%0A%E4%BD%9C%E5%93%81%E5%90%8D%E7%A7%B0%EF%BC%9A%0A%E5%88%9B%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E7%94%BB%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%E3%80%81%E7%94%A8%E4%BA%86%E4%BB%80%E4%B9%88%E6%9D%90%E6%96%99%EF%BC%89%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E5%90%8C%E6%84%8F%E5%9C%A8%E7%A4%BE%E5%9B%A2%E7%BD%91%E7%AB%99%E7%BD%B2%E5%90%8D%E5%B1%95%E7%A4%BA%EF%BC%9A%E6%98%AF%20/%20%E5%90%A6%0A%0A%EF%BC%88%E8%AF%B7%E6%8A%8A%E4%BD%9C%E5%93%81%E5%9B%BE%E7%89%87%E4%BD%9C%E4%B8%BA%E9%99%84%E4%BB%B6%E6%B7%BB%E5%8A%A0%E5%88%B0%E8%BF%99%E5%B0%81%E9%82%AE%E4%BB%B6%EF%BC%89%0A">写邮件投稿 →</a>
+          <span class="art-mail"><span id="art-mail">juliayaxuan.27@gmail.com</span><button type="button" class="ghost" data-copy="art-mail">复制</button></span>
+          <span class="art-tip">邮件打不开的话，复制邮箱用你常用的邮箱发送，附上作品图片即可。</span>
+        </div>
       </div>
     </div>
   </section>
@@ -917,7 +970,7 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
   <section class="block px" id="what">
     <div class="inner">
       <h2 class="h2">我们做什么<span class="serif">What we do</span></h2>
-      <p class="lead">欢迎所有对脑科学感兴趣的同学，不需要任何基础。</p>
+      <p class="lead">欢迎所有对脑科学感兴趣的同学，不需要任何基础，每一位 Neuronaut 都从好奇开始。</p>
       <div class="acts">
         <div><b>讲座与交流</b><span>脑科学讲座、研究前沿分享、学长学姐经验交流</span></div>
         <div><b>学生讲座</b><span>社团内部分享会，交流研究与学习心得</span></div>
@@ -936,8 +989,8 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
   <section class="block px" id="join">
     <div class="inner join">
       <div>
-        <h2 class="h2">加入我们<span class="serif">Join us</span></h2>
-        <p class="lead">先来百团大战的摊位玩一局，或者直接联系社长。关注 Instagram 获取最新活动。</p>
+        <h2 class="h2">加入我们<span class="serif">Become a Neuronaut</span></h2>
+        <p class="lead">我们的社员叫 <b class="nn">Neuronauts</b>，大脑世界的探险家。欢迎直接联系社长，或者关注 Instagram 获取最新活动。</p>
         <a class="cta" href="https://www.instagram.com/sdszneurosoc/" target="_blank" rel="noopener">关注 @sdszneurosoc</a>
       </div>
       <div class="contact">
@@ -1195,7 +1248,7 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
     </div>
   </div>
 </div>
-<footer class="px"><span class="foot-brand"><span class="logo-img" aria-hidden="true"></span>© 2026 SDSZ 脑科学社 · Neuroscience Society</span><span>静息电位 −70 mV · 好奇心 ∞</span></footer>
+<footer class="px"><span class="foot-brand"><span class="logo-img" aria-hidden="true"></span>© 2026 SDSZ 脑科学社 · Neuroscience Society</span><span>Neuron the Move 🧠 · 静息电位 −70 mV · 好奇心 ∞</span></footer>
 </main>
 
 <script>
@@ -1221,19 +1274,19 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
 
 
   /* brain quote: a random one on every visit */
-  const QUOTES=[["The Brain — is wider than the Sky —", "Emily Dickinson"], ["The Brain is just the weight of God —", "Emily Dickinson"], ["Every man can, if he so desires, become the sculptor of his own brain.", "Santiago Ramón y Cajal"], ["Like the entomologist in pursuit of brightly colored butterflies, my attention hunted, in the flower garden of the gray matter, cells with delicate and elegant forms, the mysterious butterflies of the soul.", "Santiago Ramón y Cajal"], ["Neurons that fire together, wire together.", "Carla Shatz, summarizing Donald Hebb"], ["When an axon of cell A is near enough to excite a cell B and repeatedly or persistently takes part in firing it, some growth process or metabolic change takes place in one or both cells.", "Donald Hebb, 1949"], ["If the human brain were so simple that we could understand it, we would be so simple that we couldn't.", "Emerson M. Pugh"], ["You are your synapses.", "Joseph LeDoux"], ["You, your joys and your sorrows, your memories and your ambitions, your sense of personal identity and free will, are in fact no more than the behavior of a vast assembly of nerve cells and their associated molecules.", "Francis Crick"], ["Men ought to know that from the brain, and from the brain only, arise our pleasures, joys, laughter and jests, as well as our sorrows, pains, griefs and tears.", "Hippocrates"], ["Swiftly the head-mass becomes an enchanted loom where millions of flashing shuttles weave a dissolving pattern, always a meaningful pattern though never an abiding one.", "Charles Sherrington"], ["How can a three-pound mass of jelly that you can hold in your palm imagine angels, contemplate the meaning of infinity, and even question its own place in the cosmos?", "V. S. Ramachandran"], ["The mind is what the brain does.", "Steven Pinker"], ["Minds are simply what brains do.", "Marvin Minsky"], ["We see with the eyes, but we see with the brain as well.", "Oliver Sacks"], ["Above all, I have been a sentient being, a thinking animal, on this beautiful planet, and that in itself has been an enormous privilege and adventure.", "Oliver Sacks"], ["The really hard problem of consciousness is the problem of experience.", "David Chalmers"], ["An organism has conscious mental states if and only if there is something that it is like to be that organism.", "Thomas Nagel"], ["In the end, we are self-perceiving, self-inventing, locked-in mirages that are little miracles of self-reference.", "Douglas Hofstadter"], ["It always takes longer than you expect, even when you take into account Hofstadter's Law.", "Douglas Hofstadter"], ["The conscious you — the I that flickers to life when you wake up in the morning — is the smallest bit of what's transpiring in your brain.", "David Eagleman"], ["We predict ourselves into existence.", "Anil Seth"], ["Nothing in life is as important as you think it is, while you are thinking about it.", "Daniel Kahneman"], ["We can be blind to the obvious, and we are also blind to our blindness.", "Daniel Kahneman"], ["A wealth of information creates a poverty of attention.", "Herbert Simon"], ["My problem is that I have been persecuted by an integer.", "George A. Miller, on the magical number seven"], ["Psychology has a long past, but only a short history.", "Hermann Ebbinghaus"], ["The whole is other than the sum of its parts.", "Kurt Koffka"], ["Everyone knows what attention is. It is the taking possession by the mind, in clear and vivid form, of one out of what seem several simultaneously possible objects or trains of thought.", "William James"], ["My experience is what I agree to attend to.", "William James"], ["The art of being wise is the art of knowing what to overlook.", "William James"], ["Habit is the enormous fly-wheel of society.", "William James"], ["We speak with the left hemisphere.", "Paul Broca"], ["The interpretation of dreams is the royal road to a knowledge of the unconscious activities of the mind.", "Sigmund Freud"], ["Who looks outside, dreams; who looks inside, awakes.", "Carl Jung"], ["Don't become a mere recorder of facts, but try to penetrate the mystery of their origin.", "Ivan Pavlov"], ["Perfect as the wing of a bird may be, it will never enable the bird to fly if unsupported by the air. Facts are the air of science.", "Ivan Pavlov"], ["Education is what survives when what has been learned has been forgotten.", "B. F. Skinner"], ["I propose to consider the question, 'Can machines think?'", "Alan Turing"], ["We can only see a short distance ahead, but we can see plenty there that needs to be done.", "Alan Turing"], ["The Analytical Engine weaves algebraic patterns just as the Jacquard loom weaves flowers and leaves.", "Ada Lovelace"], ["Above all, don't fear difficult moments. The best comes from them.", "Rita Levi-Montalcini"], ["The body does whatever it wants. I am not the body: I am the mind.", "Rita Levi-Montalcini"], ["Science and everyday life cannot and should not be separated.", "Rosalind Franklin"], ["Nothing in life is to be feared, it is only to be understood.", "Marie Curie"], ["One never notices what has been done; one can only see what remains to be done.", "Marie Curie"], ["What I cannot create, I do not understand.", "Richard Feynman"], ["The first principle is that you must not fool yourself — and you are the easiest person to fool.", "Richard Feynman"], ["I learned very early the difference between knowing the name of something and knowing something.", "Richard Feynman"], ["Nature uses only the longest threads to weave her patterns, so each small piece of her fabric reveals the organization of the entire tapestry.", "Richard Feynman"], ["Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.", "Richard Feynman"], ["The important thing is not to stop questioning. Curiosity has its own reason for existing.", "Albert Einstein"], ["Imagination is more important than knowledge.", "Albert Einstein"], ["I have no special talents. I am only passionately curious.", "Albert Einstein"], ["The best way to have a good idea is to have lots of ideas.", "Linus Pauling"], ["Chance favors only the prepared mind.", "Louis Pasteur"], ["Science knows no country, because knowledge belongs to humanity, and is the torch which illuminates the world.", "Louis Pasteur"], ["Discovery consists of seeing what everybody has seen and thinking what nobody has thought.", "Albert Szent-Györgyi"], ["Art is I; science is we.", "Claude Bernard"], ["It is what we know already that often prevents us from learning.", "Claude Bernard"], ["Nothing is too wonderful to be true, if it be consistent with the laws of nature.", "Michael Faraday"], ["The great tragedy of Science — the slaying of a beautiful hypothesis by an ugly fact.", "Thomas Henry Huxley"], ["I love fools' experiments. I am always making them.", "Charles Darwin"], ["Ignorance more frequently begets confidence than does knowledge.", "Charles Darwin"], ["Nothing in biology makes sense except in the light of evolution.", "Theodosius Dobzhansky"], ["If I have seen further it is by standing on the shoulders of Giants.", "Isaac Newton"], ["When you can measure what you are speaking about, and express it in numbers, you know something about it.", "Lord Kelvin"], ["Genius is one percent inspiration and ninety-nine percent perspiration.", "Thomas Edison"], ["The saddest aspect of life right now is that science gathers knowledge faster than society gathers wisdom.", "Isaac Asimov"], ["We are a way for the cosmos to know itself.", "Carl Sagan"], ["We are made of star-stuff.", "Carl Sagan"], ["Extraordinary claims require extraordinary evidence.", "Carl Sagan"], ["Science is a way of thinking much more than it is a body of knowledge.", "Carl Sagan"], ["Imagination will often carry us to worlds that never were. But without it we go nowhere.", "Carl Sagan"], ["The good thing about science is that it's true whether or not you believe in it.", "Neil deGrasse Tyson"], ["Look up at the stars and not down at your feet. Be curious.", "Stephen Hawking"], ["What you do makes a difference, and you have to decide what kind of difference you want to make.", "Jane Goodall"], ["There is no such thing as philosophy-free science; there is only science whose philosophical baggage is taken on board without examination.", "Daniel Dennett"], ["I think, therefore I am.", "René Descartes"], ["Man is but a reed, the most feeble thing in nature; but he is a thinking reed.", "Blaise Pascal"], ["The heart has its reasons which reason knows nothing of.", "Blaise Pascal"], ["Thoughts without content are empty, intuitions without concepts are blind.", "Immanuel Kant"], ["Let us then suppose the mind to be, as we say, white paper, void of all characters, without any ideas.", "John Locke"], ["Reason is, and ought only to be the slave of the passions.", "David Hume"], ["The limits of my language mean the limits of my world.", "Ludwig Wittgenstein"], ["He who has a why to live can bear almost any how.", "Friedrich Nietzsche"], ["The unexamined life is not worth living.", "Socrates, in Plato's Apology"], ["Knowledge which is acquired under compulsion obtains no hold on the mind.", "Plato"], ["All men by nature desire to know.", "Aristotle"], ["No man ever steps in the same river twice.", "Heraclitus"], ["Men are disturbed not by things, but by the views which they take of them.", "Epictetus"], ["The soul becomes dyed with the colour of its thoughts.", "Marcus Aurelius"], ["While we teach, we learn.", "Seneca"], ["We suffer more often in imagination than in reality.", "Seneca"], ["Memory is the treasury and guardian of all things.", "Cicero"], ["The mind is not a vessel to be filled, but a fire to be kindled.", "after Plutarch"], ["Knowledge is power.", "Francis Bacon"], ["Reading maketh a full man; conference a ready man; and writing an exact man.", "Francis Bacon"], ["We are what we repeatedly do. Excellence, then, is not an act, but a habit.", "Will Durant"], ["Experience is not what happens to a man; it is what a man does with what happens to him.", "Aldous Huxley"], ["We don't see things as they are, we see them as we are.", "Anaïs Nin"], ["The real voyage of discovery consists not in seeking new landscapes, but in having new eyes.", "after Marcel Proust"], ["Examine for a moment an ordinary mind on an ordinary day.", "Virginia Woolf"], ["I am large, I contain multitudes.", "Walt Whitman"], ["The mind is its own place, and in itself can make a heaven of Hell, a hell of Heaven.", "John Milton"], ["There is nothing either good or bad, but thinking makes it so.", "William Shakespeare, Hamlet"], ["We are such stuff as dreams are made on, and our little life is rounded with a sleep.", "William Shakespeare, The Tempest"], ["Sleep that knits up the ravelled sleave of care.", "William Shakespeare, Macbeth"], ["There's rosemary, that's for remembrance.", "William Shakespeare, Hamlet"], ["Our doubts are traitors, and make us lose the good we oft might win by fearing to attempt.", "William Shakespeare, Measure for Measure"], ["Memory is the diary that we all carry about with us.", "Oscar Wilde"], ["Sleep is that golden chain that ties health and our bodies together.", "Thomas Dekker"], ["Early to bed and early to rise, makes a man healthy, wealthy, and wise.", "Benjamin Franklin"], ["You see, but you do not observe.", "Arthur Conan Doyle, Sherlock Holmes"], ["Why, sometimes I've believed as many as six impossible things before breakfast.", "Lewis Carroll"], ["It is only with the heart that one can see rightly; what is essential is invisible to the eye.", "Antoine de Saint-Exupéry"], ["The best and most beautiful things in the world cannot be seen or even touched — they must be felt with the heart.", "Helen Keller"]];
+  const QUOTES=[["The Brain — is wider than the Sky —", "Emily Dickinson"], ["The Brain is just the weight of God —", "Emily Dickinson"], ["Every man can, if he so desires, become the sculptor of his own brain.", "Santiago Ramón y Cajal"], ["Like the entomologist in pursuit of brightly colored butterflies, my attention hunted, in the flower garden of the gray matter, cells with delicate and elegant forms, the mysterious butterflies of the soul.", "Santiago Ramón y Cajal"], ["Neurons that fire together, wire together.", "Carla Shatz, summarizing Donald Hebb"], ["When an axon of cell A is near enough to excite a cell B and repeatedly or persistently takes part in firing it, some growth process or metabolic change takes place in one or both cells.", "Donald Hebb, 1949"], ["If the human brain were so simple that we could understand it, we would be so simple that we couldn't.", "Emerson M. Pugh"], ["You are your synapses.", "Joseph LeDoux"], ["You, your joys and your sorrows, your memories and your ambitions, your sense of personal identity and free will, are in fact no more than the behavior of a vast assembly of nerve cells and their associated molecules.", "Francis Crick"], ["Men ought to know that from the brain, and from the brain only, arise our pleasures, joys, laughter and jests, as well as our sorrows, pains, griefs and tears.", "Hippocrates"], ["Swiftly the head-mass becomes an enchanted loom where millions of flashing shuttles weave a dissolving pattern, always a meaningful pattern though never an abiding one.", "Charles Sherrington"], ["How can a three-pound mass of jelly that you can hold in your palm imagine angels, contemplate the meaning of infinity, and even question its own place in the cosmos?", "V. S. Ramachandran"], ["The mind is what the brain does.", "Steven Pinker"], ["Minds are simply what brains do.", "Marvin Minsky"], ["We see with the eyes, but we see with the brain as well.", "Oliver Sacks"], ["Above all, I have been a sentient being, a thinking animal, on this beautiful planet, and that in itself has been an enormous privilege and adventure.", "Oliver Sacks"], ["The really hard problem of consciousness is the problem of experience.", "David Chalmers"], ["An organism has conscious mental states if and only if there is something that it is like to be that organism.", "Thomas Nagel"], ["In the end, we are self-perceiving, self-inventing, locked-in mirages that are little miracles of self-reference.", "Douglas Hofstadter"], ["It always takes longer than you expect, even when you take into account Hofstadter's Law.", "Douglas Hofstadter"], ["The conscious you — the I that flickers to life when you wake up in the morning — is the smallest bit of what's transpiring in your brain.", "David Eagleman"], ["We predict ourselves into existence.", "Anil Seth"], ["Nothing in life is as important as you think it is, while you are thinking about it.", "Daniel Kahneman"], ["We can be blind to the obvious, and we are also blind to our blindness.", "Daniel Kahneman"], ["A wealth of information creates a poverty of attention.", "Herbert Simon"], ["My problem is that I have been persecuted by an integer.", "George A. Miller, on the magical number seven"], ["Psychology has a long past, but only a short history.", "Hermann Ebbinghaus"], ["The whole is other than the sum of its parts.", "Kurt Koffka"], ["Everyone knows what attention is. It is the taking possession by the mind, in clear and vivid form, of one out of what seem several simultaneously possible objects or trains of thought.", "William James"], ["My experience is what I agree to attend to.", "William James"], ["The art of being wise is the art of knowing what to overlook.", "William James"], ["Habit is the enormous fly-wheel of society.", "William James"], ["We speak with the left hemisphere.", "Paul Broca"], ["The interpretation of dreams is the royal road to a knowledge of the unconscious activities of the mind.", "Sigmund Freud"], ["Who looks outside, dreams; who looks inside, awakes.", "Carl Jung"], ["Don't become a mere recorder of facts, but try to penetrate the mystery of their origin.", "Ivan Pavlov"], ["Perfect as the wing of a bird may be, it will never enable the bird to fly if unsupported by the air. Facts are the air of science.", "Ivan Pavlov"], ["Education is what survives when what has been learned has been forgotten.", "B. F. Skinner"], ["I propose to consider the question, 'Can machines think?'", "Alan Turing"], ["We can only see a short distance ahead, but we can see plenty there that needs to be done.", "Alan Turing"], ["The Analytical Engine weaves algebraic patterns just as the Jacquard loom weaves flowers and leaves.", "Ada Lovelace"], ["Above all, don't fear difficult moments. The best comes from them.", "Rita Levi-Montalcini"], ["The body does whatever it wants. I am not the body: I am the mind.", "Rita Levi-Montalcini"], ["Science and everyday life cannot and should not be separated.", "Rosalind Franklin"], ["Nothing in life is to be feared, it is only to be understood.", "Marie Curie"], ["One never notices what has been done; one can only see what remains to be done.", "Marie Curie"], ["What I cannot create, I do not understand.", "Richard Feynman"], ["The first principle is that you must not fool yourself — and you are the easiest person to fool.", "Richard Feynman"], ["I learned very early the difference between knowing the name of something and knowing something.", "Richard Feynman"], ["Nature uses only the longest threads to weave her patterns, so each small piece of her fabric reveals the organization of the entire tapestry.", "Richard Feynman"], ["Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.", "Richard Feynman"], ["The important thing is not to stop questioning. Curiosity has its own reason for existing.", "Albert Einstein"], ["Imagination is more important than knowledge.", "Albert Einstein"], ["I have no special talents. I am only passionately curious.", "Albert Einstein"], ["The best way to have a good idea is to have lots of ideas.", "Linus Pauling"], ["Chance favors only the prepared mind.", "Louis Pasteur"], ["Science knows no country, because knowledge belongs to humanity, and is the torch which illuminates the world.", "Louis Pasteur"], ["Discovery consists of seeing what everybody has seen and thinking what nobody has thought.", "Albert Szent-Györgyi"], ["Art is I; science is we.", "Claude Bernard"], ["It is what we know already that often prevents us from learning.", "Claude Bernard"], ["Nothing is too wonderful to be true, if it be consistent with the laws of nature.", "Michael Faraday"], ["The great tragedy of Science — the slaying of a beautiful hypothesis by an ugly fact.", "Thomas Henry Huxley"], ["I love fools' experiments. I am always making them.", "Charles Darwin"], ["Ignorance more frequently begets confidence than does knowledge.", "Charles Darwin"], ["Nothing in biology makes sense except in the light of evolution.", "Theodosius Dobzhansky"], ["If I have seen further it is by standing on the shoulders of Giants.", "Isaac Newton"], ["When you can measure what you are speaking about, and express it in numbers, you know something about it.", "Lord Kelvin"], ["Genius is one percent inspiration and ninety-nine percent perspiration.", "Thomas Edison"], ["The saddest aspect of life right now is that science gathers knowledge faster than society gathers wisdom.", "Isaac Asimov"], ["We are a way for the cosmos to know itself.", "Carl Sagan"], ["We are made of star-stuff.", "Carl Sagan"], ["Extraordinary claims require extraordinary evidence.", "Carl Sagan"], ["Science is a way of thinking much more than it is a body of knowledge.", "Carl Sagan"], ["Imagination will often carry us to worlds that never were. But without it we go nowhere.", "Carl Sagan"], ["The good thing about science is that it's true whether or not you believe in it.", "Neil deGrasse Tyson"], ["Look up at the stars and not down at your feet. Be curious.", "Stephen Hawking"], ["What you do makes a difference, and you have to decide what kind of difference you want to make.", "Jane Goodall"], ["There is no such thing as philosophy-free science; there is only science whose philosophical baggage is taken on board without examination.", "Daniel Dennett"], ["I think, therefore I am.", "René Descartes"], ["Man is but a reed, the most feeble thing in nature; but he is a thinking reed.", "Blaise Pascal"], ["The heart has its reasons which reason knows nothing of.", "Blaise Pascal"], ["Thoughts without content are empty, intuitions without concepts are blind.", "Immanuel Kant"], ["Let us then suppose the mind to be, as we say, white paper, void of all characters, without any ideas.", "John Locke"], ["Reason is, and ought only to be the slave of the passions.", "David Hume"], ["The limits of my language mean the limits of my world.", "Ludwig Wittgenstein"], ["He who has a why to live can bear almost any how.", "Friedrich Nietzsche"], ["The unexamined life is not worth living.", "Socrates, in Plato's Apology"], ["Knowledge which is acquired under compulsion obtains no hold on the mind.", "Plato"], ["All men by nature desire to know.", "Aristotle"], ["No man ever steps in the same river twice.", "Heraclitus"], ["Men are disturbed not by things, but by the views which they take of them.", "Epictetus"], ["The soul becomes dyed with the colour of its thoughts.", "Marcus Aurelius"], ["While we teach, we learn.", "Seneca"], ["We suffer more often in imagination than in reality.", "Seneca"], ["Memory is the treasury and guardian of all things.", "Cicero"], ["The mind is not a vessel to be filled, but a fire to be kindled.", "after Plutarch"], ["Knowledge is power.", "Francis Bacon"], ["Reading maketh a full man; conference a ready man; and writing an exact man.", "Francis Bacon"], ["We are what we repeatedly do. Excellence, then, is not an act, but a habit.", "Will Durant"], ["Experience is not what happens to a man; it is what a man does with what happens to him.", "Aldous Huxley"], ["We don't see things as they are, we see them as we are.", "Anaïs Nin"], ["The real voyage of discovery consists not in seeking new landscapes, but in having new eyes.", "after Marcel Proust"], ["Examine for a moment an ordinary mind on an ordinary day.", "Virginia Woolf"], ["I am large, I contain multitudes.", "Walt Whitman"], ["The mind is its own place, and in itself can make a heaven of Hell, a hell of Heaven.", "John Milton"], ["There is nothing either good or bad, but thinking makes it so.", "William Shakespeare, Hamlet"], ["We are such stuff as dreams are made on, and our little life is rounded with a sleep.", "William Shakespeare, The Tempest"], ["Sleep that knits up the ravelled sleave of care.", "William Shakespeare, Macbeth"], ["There's rosemary, that's for remembrance.", "William Shakespeare, Hamlet"], ["Our doubts are traitors, and make us lose the good we oft might win by fearing to attempt.", "William Shakespeare, Measure for Measure"], ["Memory is the diary that we all carry about with us.", "Oscar Wilde"], ["Sleep is that golden chain that ties health and our bodies together.", "Thomas Dekker"], ["Early to bed and early to rise, makes a man healthy, wealthy, and wise.", "Benjamin Franklin"], ["You see, but you do not observe.", "Arthur Conan Doyle, Sherlock Holmes"], ["Why, sometimes I've believed as many as six impossible things before breakfast.", "Lewis Carroll"], ["It is only with the heart that one can see rightly; what is essential is invisible to the eye.", "Antoine de Saint-Exupéry"], ["The best and most beautiful things in the world cannot be seen or even touched — they must be felt with the heart.", "Helen Keller"], ["Life is like riding a bicycle. To keep your balance you must keep moving.", "Albert Einstein"], ["The most beautiful thing we can experience is the mysterious. It is the source of all true art and science.", "Albert Einstein"], ["It is the supreme art of the teacher to awaken joy in creative expression and knowledge.", "Albert Einstein"], ["I think I can safely say that nobody understands quantum mechanics.", "Richard Feynman"], ["Nobody ever figures out what life is all about, and it doesn't matter. Explore the world. Nearly everything is really interesting if you go into it deeply enough.", "Richard Feynman"], ["Science is the belief in the ignorance of experts.", "Richard Feynman"], ["You have no responsibility to live up to what other people think you ought to accomplish.", "Richard Feynman"], ["It doesn't matter how beautiful your theory is. If it doesn't agree with experiment, it's wrong.", "Richard Feynman"], ["Absence of evidence is not evidence of absence.", "Carl Sagan"], ["Science is not only compatible with spirituality; it is a profound source of spirituality.", "Carl Sagan"], ["It is far better to grasp the universe as it really is than to persist in delusion, however satisfying and reassuring.", "Carl Sagan"], ["A book is proof that humans are capable of working magic.", "Carl Sagan"], ["If you wish to make an apple pie from scratch, you must first invent the universe.", "Carl Sagan"], ["I was taught that the way of progress was neither swift nor easy.", "Marie Curie"], ["We must have perseverance and above all confidence in ourselves.", "Marie Curie"], ["In science, we must be interested in things, not in persons.", "Marie Curie"], ["A scientific man ought to have no wishes, no affections, — a mere heart of stone.", "Charles Darwin"], ["The love for all living creatures is the most noble attribute of man.", "Charles Darwin"], ["It is a cursed evil to any man to become as absorbed in any subject as I am in mine.", "Charles Darwin"], ["Truth is ever to be found in simplicity, and not in the multiplicity and confusion of things.", "Isaac Newton"], ["I seem to have been only like a boy playing on the sea-shore, whilst the great ocean of truth lay all undiscovered before me.", "Isaac Newton"], ["Plato is my friend, Aristotle is my friend, but my greatest friend is truth.", "Isaac Newton"], ["Philosophy is written in that great book which ever lies before our eyes — I mean the universe.", "Galileo Galilei"], ["Iron rusts from disuse; stagnant water loses its purity; even so does inaction sap the vigour of the mind.", "Leonardo da Vinci"], ["The noblest pleasure is the joy of understanding.", "Leonardo da Vinci"], ["The roots of education are bitter, but the fruit is sweet.", "Aristotle"], ["Hope is a waking dream.", "Aristotle"], ["Thinking is the talking of the soul with itself.", "after Plato"], ["I know that I know nothing.", "after Socrates"], ["Everything flows.", "Heraclitus"], ["First say to yourself what you would be; and then do what you have to do.", "Epictetus"], ["It is impossible for a man to learn what he thinks he already knows.", "Epictetus"], ["It is not that we have a short time to live, but that we waste a lot of it.", "Seneca"], ["Wherever there is a human being, there is an opportunity for a kindness.", "Seneca"], ["Difficulties strengthen the mind, as labor does the body.", "Seneca"], ["Very little is needed to make a happy life; it is all within yourself, in your way of thinking.", "Marcus Aurelius"], ["The universe is change; our life is what our thoughts make it.", "Marcus Aurelius"], ["Waste no more time arguing about what a good man should be. Be one.", "Marcus Aurelius"], ["To be ignorant of what occurred before you were born is to remain always a child.", "Cicero"], ["Dripping water hollows out stone, not through force but through persistence.", "Ovid"], ["They can because they think they can.", "Virgil"], ["Dare to know.", "Horace"], ["Have the courage to use your own understanding.", "Immanuel Kant"], ["It is not enough to have a good mind; the main thing is to use it well.", "René Descartes"], ["The reading of all good books is like a conversation with the finest minds of past centuries.", "René Descartes"], ["I have made a ceaseless effort not to ridicule, not to bewail, not to scorn human actions, but to understand them.", "Baruch Spinoza"], ["All of humanity's problems stem from man's inability to sit quietly in a room alone.", "Blaise Pascal"], ["We are generally the better persuaded by the reasons we discover ourselves than by those given to us by others.", "Blaise Pascal"], ["No man's knowledge here can go beyond his experience.", "John Locke"], ["Beauty in things exists in the mind which contemplates them.", "David Hume"], ["If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts, he shall end in certainties.", "Francis Bacon"], ["Read not to contradict and confute, nor to believe and take for granted, but to weigh and consider.", "Francis Bacon"], ["What do I know?", "Michel de Montaigne"], ["The most certain sign of wisdom is cheerfulness.", "Michel de Montaigne"], ["Knowing is not enough; we must apply. Willing is not enough; we must do.", "Johann Wolfgang von Goethe"], ["Talent hits a target no one else can hit; genius hits a target no one else can see.", "Arthur Schopenhauer"], ["One must still have chaos in oneself to be able to give birth to a dancing star.", "Friedrich Nietzsche"], ["Life can only be understood backwards; but it must be lived forwards.", "Søren Kierkegaard"], ["Our life is frittered away by detail. Simplify, simplify.", "Henry David Thoreau"], ["The question is not what you look at, but what you see.", "Henry David Thoreau"], ["Things do not change; we change.", "Henry David Thoreau"], ["Not until we are lost do we begin to understand ourselves.", "Henry David Thoreau"], ["Nothing great was ever achieved without enthusiasm.", "Ralph Waldo Emerson"], ["The years teach much which the days never know.", "Ralph Waldo Emerson"], ["Every artist was first an amateur.", "Ralph Waldo Emerson"], ["Do not be too timid and squeamish about your actions. All life is an experiment.", "Ralph Waldo Emerson"], ["Trust thyself: every heart vibrates to that iron string.", "Ralph Waldo Emerson"], ["A foolish consistency is the hobgoblin of little minds.", "Ralph Waldo Emerson"], ["Do I contradict myself? Very well then I contradict myself.", "Walt Whitman"], ["Re-examine all you have been told at school or church or in any book, dismiss whatever insults your own soul.", "Walt Whitman"], ["Resist much, obey little.", "Walt Whitman"], ["I celebrate myself, and sing myself.", "Walt Whitman"], ["Not I, not anyone else can travel that road for you, you must travel it by yourself.", "Walt Whitman"], ["Hope is the thing with feathers that perches in the soul.", "Emily Dickinson"], ["Tell all the truth but tell it slant.", "Emily Dickinson"], ["I'm Nobody! Who are you?", "Emily Dickinson"], ["The Brain has Corridors — surpassing Material Place —", "Emily Dickinson"], ["Forever — is composed of Nows —", "Emily Dickinson"], ["The Brain, within its Groove, runs evenly — and true —", "Emily Dickinson"], ["I dwell in Possibility —", "Emily Dickinson"], ["Not knowing when the Dawn will come, I open every Door.", "Emily Dickinson"], ["To make a prairie it takes a clover and one bee.", "Emily Dickinson"], ["That it will never come again is what makes life so sweet.", "Emily Dickinson"], ["To thine own self be true.", "William Shakespeare, Hamlet"], ["What a piece of work is a man! How noble in reason, how infinite in faculty!", "William Shakespeare, Hamlet"], ["The fault, dear Brutus, is not in our stars, but in ourselves.", "William Shakespeare, Julius Caesar"], ["Knowledge the wing wherewith we fly to heaven.", "William Shakespeare, Henry VI"], ["We know what we are, but know not what we may be.", "William Shakespeare, Hamlet"], ["Sweet are the uses of adversity.", "William Shakespeare, As You Like It"], ["Love all, trust a few, do wrong to none.", "William Shakespeare, All's Well That Ends Well"], ["Things won are done; joy's soul lies in the doing.", "William Shakespeare, Troilus and Cressida"], ["Brevity is the soul of wit.", "William Shakespeare, Hamlet"], ["Present fears are less than horrible imaginings.", "William Shakespeare, Macbeth"], ["Our bodies are our gardens, to the which our wills are gardeners.", "William Shakespeare, Othello"], ["There are more things in heaven and earth, Horatio, than are dreamt of in your philosophy.", "William Shakespeare, Hamlet"], ["What's past is prologue.", "William Shakespeare, The Tempest"], ["Some are born great, some achieve greatness, and some have greatness thrust upon 'em.", "William Shakespeare, Twelfth Night"], ["How far that little candle throws his beams!", "William Shakespeare, The Merchant of Venice"], ["Wisely and slow; they stumble that run fast.", "William Shakespeare, Romeo and Juliet"], ["Give every man thy ear, but few thy voice.", "William Shakespeare, Hamlet"], ["The miserable have no other medicine but only hope.", "William Shakespeare, Measure for Measure"], ["Cowards die many times before their deaths; the valiant never taste of death but once.", "William Shakespeare, Julius Caesar"], ["When to the sessions of sweet silent thought I summon up remembrance of things past.", "William Shakespeare, Sonnet 30"], ["Memory, the warder of the brain.", "William Shakespeare, Macbeth"], ["The brain may devise laws for the blood, but a hot temper leaps o'er a cold decree.", "William Shakespeare, The Merchant of Venice"], ["To be, or not to be: that is the question.", "William Shakespeare, Hamlet"], ["I wasted time, and now doth time waste me.", "William Shakespeare, Richard II"], ["Modest doubt is call'd the beacon of the wise.", "William Shakespeare, Troilus and Cressida"], ["Strong reasons make strong actions.", "William Shakespeare, King John"], ["Long is the way and hard, that out of Hell leads up to light.", "John Milton"], ["To see a World in a Grain of Sand, and a Heaven in a Wild Flower.", "William Blake"], ["If the doors of perception were cleansed every thing would appear to man as it is, infinite.", "William Blake"], ["What is now proved was once only imagin'd.", "William Blake"], ["The eye altering alters all.", "William Blake"], ["Energy is Eternal Delight.", "William Blake"], ["A thing of beauty is a joy for ever.", "John Keats"], ["Beauty is truth, truth beauty.", "John Keats"], ["Nothing ever becomes real till it is experienced.", "John Keats"], ["I am certain of nothing but the holiness of the Heart's affections and the truth of Imagination.", "John Keats"], ["Do you not see how necessary a World of Pains and troubles is to school an Intelligence and make it a soul?", "John Keats"], ["The Child is father of the Man.", "William Wordsworth"], ["Come forth into the light of things, let Nature be your teacher.", "William Wordsworth"], ["To strive, to seek, to find, and not to yield.", "Alfred, Lord Tennyson"], ["Truth is always strange; stranger than fiction.", "Lord Byron"], ["Who in the world am I? Ah, that's the great puzzle.", "Lewis Carroll"], ["It's no use going back to yesterday, because I was a different person then.", "Lewis Carroll"], ["Begin at the beginning, and go on till you come to the end: then stop.", "Lewis Carroll"], ["Curiouser and curiouser!", "Lewis Carroll"], ["Experience is the name everyone gives to their mistakes.", "Oscar Wilde"], ["We are all in the gutter, but some of us are looking at the stars.", "Oscar Wilde"], ["To live is the rarest thing in the world. Most people exist, that is all.", "Oscar Wilde"], ["The truth is rarely pure and never simple.", "Oscar Wilde"], ["Courage is resistance to fear, mastery of fear — not absence of fear.", "Mark Twain"], ["I declare after all there is no enjoyment like reading!", "Jane Austen"], ["I am no bird; and no net ensnares me.", "Charlotte Brontë"], ["To go wrong in one's own way is better than to go right in someone else's.", "Fyodor Dostoevsky"], ["The mystery of human existence lies not in just staying alive, but in finding something to live for.", "Fyodor Dostoevsky"], ["Everyone thinks of changing the world, but no one thinks of changing himself.", "Leo Tolstoy"], ["The two most powerful warriors are patience and time.", "Leo Tolstoy"], ["The road is always better than the inn.", "Miguel de Cervantes"], ["Everyone complains of his memory, and no one complains of his judgment.", "François de La Rochefoucauld"], ["Judge a man by his questions rather than by his answers.", "Voltaire"], ["Common sense is not so common.", "Voltaire"], ["Be patient toward all that is unsolved in your heart and try to love the questions themselves.", "Rainer Maria Rilke"], ["A book must be the axe for the frozen sea within us.", "Franz Kafka"], ["Lock up your libraries if you like; but there is no gate, no lock, no bolt that you can set upon the freedom of my mind.", "Virginia Woolf"], ["Alone we can do so little; together we can do so much.", "Helen Keller"], ["Life is either a daring adventure or nothing.", "Helen Keller"], ["You can't use up creativity. The more you use, the more you have.", "Maya Angelou"], ["You must do the thing you think you cannot do.", "Eleanor Roosevelt"], ["Education is the most powerful weapon which you can use to change the world.", "Nelson Mandela"], ["One child, one teacher, one book, one pen can change the world.", "Malala Yousafzai"], ["Stay hungry, stay foolish.", "Whole Earth Catalog, quoted by Steve Jobs"], ["Know more today about the world than I knew yesterday.", "Neil deGrasse Tyson"], ["However difficult life may seem, there is always something you can do and succeed at.", "Stephen Hawking"], ["If you know you are on the right track, if you have this inner knowledge, then nobody can turn you off.", "Barbara McClintock"], ["The more clearly we can focus our attention on the wonders and realities of the universe about us, the less taste we shall have for destruction.", "Rachel Carson"], ["If a child is to keep alive his inborn sense of wonder, he needs the companionship of at least one adult who can share it.", "Rachel Carson"], ["Only if we understand, will we care. Only if we care, will we help.", "Jane Goodall"], ["That brain of mine is something more than merely mortal; as time will show.", "Ada Lovelace"], ["The more I study, the more insatiable do I feel my genius for it to be.", "Ada Lovelace"], ["The most dangerous phrase in the language is 'We've always done it this way.'", "Grace Hopper"], ["A ship in port is safe, but that's not what ships are built for.", "Grace Hopper"], ["If people do not believe that mathematics is simple, it is only because they do not realize how complicated life is.", "John von Neumann"], ["You don't understand anything until you learn it more than one way.", "Marvin Minsky"], ["Learning results from what the student does and thinks and only from what the student does and thinks.", "Herbert Simon"], ["Through others we become ourselves.", "Lev Vygotsky"], ["The greatest sign of success for a teacher is to be able to say, 'The children are now working as if I did not exist.'", "Maria Montessori"], ["The curious paradox is that when I accept myself just as I am, then I can change.", "Carl Rogers"], ["If the only tool you have is a hammer, you tend to see every problem as a nail.", "Abraham Maslow"], ["When we are no longer able to change a situation, we are challenged to change ourselves.", "Viktor Frankl"], ["Being entirely honest with oneself is a good exercise.", "Sigmund Freud"], ["Knowing your own darkness is the best method for dealing with the darknesses of other people.", "Carl Jung"], ["Everything that irritates us about others can lead us to an understanding of ourselves.", "Carl Jung"], ["Learn the ABC of science before you try to ascend to its summit.", "Ivan Pavlov"], ["Science demands from a man all his life.", "Ivan Pavlov"], ["The mind is at every stage a theatre of simultaneous possibilities.", "William James"], ["Consciousness does not appear to itself chopped up in bits. It is nothing jointed; it flows.", "William James"], ["Every great work is the fruit of patience and perseverance, combined with tenacious concentration on a subject over a period of months or years.", "Santiago Ramón y Cajal"], ["There are no small problems. Problems that appear small are large problems that are not understood.", "Santiago Ramón y Cajal"], ["In examining disease, we gain wisdom about anatomy and physiology and biology.", "Oliver Sacks"], ["We have, each of us, a life-story, an inner narrative — whose continuity, whose sense, is our lives.", "Oliver Sacks"], ["Every act of perception is to some degree an act of creation, and every act of memory is to some degree an act of imagination.", "Oliver Sacks"], ["Language is not a cultural artifact that we learn the way we learn to tell time.", "Steven Pinker"], ["A reliable way to make people believe in falsehoods is frequent repetition, because familiarity is not easily distinguished from truth.", "Daniel Kahneman"], ["We are not thinking machines that feel; rather, we are feeling machines that think.", "Antonio Damasio"], ["I am my connectome.", "Sebastian Seung"], ["Use it or lose it.", "Marian Diamond, on the plastic brain"], ["There is no form of prose more difficult to understand and more tedious to read than the average scientific paper.", "Francis Crick"], ["Imperfection, and not perfection, is the end result of the program written into that formidably complex engine that is the human brain.", "Rita Levi-Montalcini"], ["My time will come.", "Gregor Mendel"], ["One sometimes finds what one is not looking for.", "Alexander Fleming"], ["Let me tell you the secret that has led me to my goal: my strength lies solely in my tenacity.", "Louis Pasteur"], ["The reward for work well done is the opportunity to do more.", "Jonas Salk"], ["A new scientific truth does not triumph by convincing its opponents, but rather because its opponents eventually die.", "Max Planck"], ["The opposite of a correct statement is a false statement. But the opposite of a profound truth may well be another profound truth.", "Niels Bohr"], ["What we observe is not nature itself, but nature exposed to our method of questioning.", "Werner Heisenberg"], ["The task is not so much to see what no one has yet seen, but to think what nobody has yet thought, about that which everybody sees.", "Erwin Schrödinger"], ["Science makes people reach selflessly for truth and objectivity.", "Lise Meitner"], ["Like what you do, and then you will do your best.", "Katherine Johnson"], ["Never be limited by other people's limited imaginations.", "Mae Jemison"], ["Life is short, the art long.", "Hippocrates"], ["Wherever the art of medicine is loved, there is also a love of humanity.", "Hippocrates"], ["The seeker after truth is not one who studies the writings of the ancients and puts his trust in them, but rather the one who suspects his faith in them.", "Ibn al-Haytham"], ["What makes the desert beautiful is that somewhere it hides a well.", "Antoine de Saint-Exupéry"], ["Not all those who wander are lost.", "J. R. R. Tolkien"], ["Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?", "J. K. Rowling, Harry Potter"], ["It does not do to dwell on dreams and forget to live.", "J. K. Rowling, Harry Potter"], ["I may not have gone where I intended to go, but I think I have ended up where I needed to be.", "Douglas Adams"], ["Self-education is, I firmly believe, the only kind of education there is.", "Isaac Asimov"], ["Any sufficiently advanced technology is indistinguishable from magic.", "Arthur C. Clarke"], ["The only way of discovering the limits of the possible is to venture a little way past them into the impossible.", "Arthur C. Clarke"], ["Nothing is so painful to the human mind as a great and sudden change.", "Mary Shelley, Frankenstein"], ["Science, my lad, is made up of mistakes, but they are mistakes which it is useful to make, because they lead little by little to the truth.", "Jules Verne"], ["It is a capital mistake to theorize before one has data.", "Arthur Conan Doyle, Sherlock Holmes"], ["When you have eliminated the impossible, whatever remains, however improbable, must be the truth.", "Arthur Conan Doyle, Sherlock Holmes"], ["My mind rebels at stagnation.", "Arthur Conan Doyle, Sherlock Holmes"], ["I keep six honest serving-men (they taught me all I knew); their names are What and Why and When and How and Where and Who.", "Rudyard Kipling"], ["Two roads diverged in a wood, and I — I took the one less traveled by.", "Robert Frost"], ["In the beginner's mind there are many possibilities, but in the expert's there are few.", "Shunryu Suzuki"], ["Empty your mind, be formless, shapeless — like water.", "Bruce Lee"], ["I've failed over and over and over again in my life. And that is why I succeed.", "Michael Jordan"], ["You miss 100% of the shots you don't take.", "Wayne Gretzky"], ["Ninety percent of the game is half mental.", "Yogi Berra"], ["Lost time is never found again.", "Benjamin Franklin"], ["Energy and persistence conquer all things.", "Benjamin Franklin"], ["The credit belongs to the man who is actually in the arena.", "Theodore Roosevelt"], ["We are drowning in information, while starving for wisdom.", "E. O. Wilson"], ["Science is the art of the soluble.", "Peter Medawar"], ["Satisfaction of one's curiosity is one of the greatest sources of happiness in life.", "Linus Pauling"], ["If the result confirms the hypothesis, then you've made a measurement. If the result is contrary to the hypothesis, then you've made a discovery.", "Enrico Fermi"], ["All science is either physics or stamp collecting.", "Ernest Rutherford"], ["Science is nothing but trained and organized common sense.", "Thomas Henry Huxley"], ["Man can learn nothing except by going from the known to the unknown.", "Claude Bernard"], ["I attribute my success to this: I never gave or took any excuse.", "Florence Nightingale"], ["Imitation is the sincerest form of flattery that mediocrity can pay to greatness.", "Oscar Wilde"], ["Every wall is a door.", "Ralph Waldo Emerson"], ["Write it on your heart that every day is the best day in the year.", "Ralph Waldo Emerson"], ["The universe is not required to be in perfect harmony with human ambition.", "Carl Sagan"], ["We live in a society exquisitely dependent on science and technology, in which hardly anyone knows anything about science and technology.", "Carl Sagan"], ["Fall in love with some activity, and do it!", "Richard Feynman"], ["Imagination is the beginning of creation.", "George Bernard Shaw"], ["Progress is impossible without change, and those who cannot change their minds cannot change anything.", "George Bernard Shaw"], ["The important thing in science is not so much to obtain new facts as to discover new ways of thinking about them.", "William Lawrence Bragg"], ["Nothing in all the world is more dangerous than sincere ignorance and conscientious stupidity.", "Martin Luther King Jr."], ["The good life is one inspired by love and guided by knowledge.", "Bertrand Russell"], ["Wonder is the feeling of a philosopher, and philosophy begins in wonder.", "Plato"], ["Curiosity is one of the permanent and certain characteristics of a vigorous intellect.", "Samuel Johnson"]];
   const bqText=document.getElementById("bqText"), bqWho=document.getElementById("bqWho"), bqFig=bqText.closest(".bq");
   let qi=-1;
-  function showQuote(){
-    let n; do{ n=Math.floor(Math.random()*QUOTES.length); }while(n===qi && QUOTES.length>1);
+  function showQuote(fixed){
+    let n=fixed; if(n===undefined){ do{ n=Math.floor(Math.random()*QUOTES.length); }while(n===qi && QUOTES.length>1); }
     qi=n; const [en,who]=QUOTES[n];
     bqText.innerHTML=`<span class="en">“${en}”</span>`;
     bqWho.textContent="— "+who;
     bqFig.classList.remove("swap"); void bqFig.offsetWidth; bqFig.classList.add("swap");
   }
-  document.getElementById("bqNext").addEventListener("click",showQuote);
+  document.getElementById("bqNext").addEventListener("click",()=>showQuote());
   document.getElementById("bqCount").textContent=QUOTES.length+" quotes";
-  showQuote();
+  { const d=new Date(), doy=Math.floor((d-new Date(d.getFullYear(),0,0))/864e5); showQuote((doy-1)%QUOTES.length); }
 
   /* brain news reader */
   const reader=document.getElementById("reader"), rPanel=document.getElementById("readerPanel");
@@ -1553,83 +1606,116 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
       const g=x.createRadialGradient(px,py,0,px,py,8);g.addColorStop(0,"rgba(255,255,255,.95)");g.addColorStop(1,"rgba(255,255,255,0)");x.fillStyle=g;x.beginPath();x.arc(px,py,8,0,6.283);x.fill();});
   }
 
-  /* HUD simulation */
-  const tgt=document.getElementById("target"), trace=document.getElementById("trace");
-  let T,TR, focus=72, focusTarget=80, aim={x:0,y:0}, shotsLeft=10, total=0, combo=0, hits=[], lastShot=0;
-  const shotsEl=document.getElementById("shots");
-  function renderShots(){shotsEl.innerHTML="";for(let i=0;i<10;i++){const s=document.createElement("i");if(i<shotsLeft)s.className="on";shotsEl.appendChild(s);}}
-  function initHud(){T=fit(tgt);TR=fit(trace);}
-  const seed=Array.from({length:3000},()=>Math.random()*2-1);
-  function stepHud(t){
-    if(Math.random()<.01)focusTarget=40+Math.random()*58;
-    focus+=(focusTarget-focus)*.02;
-    const f=Math.round(focus);
-    document.getElementById("focusNum").textContent=f;
-    document.getElementById("focusBar").style.width=f+"%";
-    document.getElementById("focusNote").textContent=f>=70?"高于阈值 70，准星趋于稳定":"低于阈值 70，准星开始抖动";
-    if(Math.floor(t/400)!==Math.floor((t-16)/400)){
-      const b=document.querySelectorAll("#bands span"), k=focus/100;
-      [30+10*(1-k),30+15*(1-k),55-25*k,30+55*k,15+25*k].forEach((v,i)=>b[i].style.height=clamp(v+Math.random()*8,8,100)+"%");
+  /* ---------- Chain Reaction: a small spiking-network game ---------- */
+  const crCv=document.getElementById("crCanvas"), crBoard=crCv.parentElement;
+  const REST=-70, TH=-55, RESET=-76, REFRAC=650, TAU=420;
+  const EXC="64,190,175", INH="236,112,150";
+  let CR=null, net=[], syn=[], spikes=[], crMode="demo", crLeft=3, crFired=0, crLast=0, crHover=-1, crNow=0, crDemoAt=0, crOwnLoop=false;
+  const crEl={lit:document.getElementById("crLit"),sp:document.getElementById("crSpikes"),left:document.getElementById("crLeft"),badge:document.getElementById("crBadge"),
+    over:document.getElementById("crOver"),ot:document.getElementById("crOverTitle"),ox:document.getElementById("crOverText")};
+  function crBuild(){
+    CR=fit(crCv); const {w,h}=CR;
+    const N=Math.round(clamp(w*h/5200,26,52)), minD=Math.sqrt(w*h/N)*.62, pad=18;
+    net=[];
+    for(let i=0;i<N;i++){
+      let best=null,bd=-1;
+      for(let k=0;k<24;k++){const x=pad+Math.random()*(w-2*pad), y=pad+Math.random()*(h-2*pad);
+        let d=1e9; net.forEach(n=>d=Math.min(d,Math.hypot(n.x-x,n.y-y))); if(d>bd){bd=d;best={x,y};}}
+      net.push({x:best.x,y:best.y,inh:Math.random()<.2,v:REST,last:-1e9,lit:false});
     }
-    const jit=(100-focus)/100;
-    const jx=Math.sin(t/310)*jit*.55+Math.sin(t/97)*jit*.25, jy=Math.cos(t/270)*jit*.5+Math.sin(t/131)*jit*.25;
-    if(user.active && t-user.last>5000){ user.active=false; setHint(); }
-    if(user.active){
-      aim.x=user.x+jx*.35; aim.y=user.y+jy*.35;
-    } else {
-      aim.x=jx; aim.y=jy;
-      if(t-lastShot>1500){ lastShot=t; fire(); }
-    }
-    flashes=flashes.filter(f=>t-f.t<450);
-    nowT=t;
+    syn=[];
+    net.forEach((a,i)=>{
+      const near=net.map((b,j)=>({j,d:Math.hypot(a.x-b.x,a.y-b.y)})).filter(o=>o.j!==i).sort((p,q)=>p.d-q.d);
+      const picks=near.slice(0,3); if(Math.random()<.3) picks.push(near[3+Math.floor(Math.random()*5)]);
+      picks.forEach(({j,d})=>{const b=net[j], bend=(Math.random()-.5)*.5;
+        syn.push({i,j,w:a.inh?-(12+Math.random()*5):(13+Math.random()*6),eff:1,delay:60+d/0.26,
+          cx:(a.x+b.x)/2+(b.y-a.y)*bend, cy:(a.y+b.y)/2-(b.x-a.x)*bend});});
+    });
+    crReset(false);
   }
-  /* player interaction: move the mouse (or finger) to aim, click/tap to fire */
-  const user={active:false,x:0,y:0,last:0}; let flashes=[], nowT=0;
-  const hint=document.getElementById("aimHint");
-  function setHint(msg){ hint.textContent = msg || (user.active ? "专注度越低，准星抖得越厉害 · 点击射击" : "移动鼠标到靶上瞄准，点击射击"); }
-  function fire(){
-    if(shotsLeft===0){shotsLeft=10;total=0;combo=0;hits=[];}
-    const d=Math.hypot(aim.x,aim.y), ring=d>=1?0:Math.max(1,Math.round((10-d*10)*10)/10);
-    shotsLeft--; hits.push({...aim}); flashes.push({x:aim.x,y:aim.y,t:nowT});
-    combo = ring>=9 ? combo+1 : 0;
-    total=Math.round((total+ring+(combo>1?.5:0))*10)/10;
-    document.getElementById("lastRing").textContent=ring?ring.toFixed(1)+" 环":"脱靶";
-    document.getElementById("total").textContent=total.toFixed(1);
-    document.getElementById("combo").textContent="×"+combo;
-    renderShots();
-    if(user.active && shotsLeft===0) setHint(`本局 ${total.toFixed(1)} 环 · 再点一次开始新的一局`);
+  function crReset(play){
+    net.forEach(n=>{n.v=REST;n.last=-1e9;n.lit=false;}); syn.forEach(s=>s.eff=1); spikes=[];
+    crFired=0; crLeft=3; crEl.over.hidden=true;
+    crMode=play?"play":"demo";
+    crEl.badge.textContent=play?"游戏中":"演示中 · 点一下开始";
+    crHud();
   }
-  function toAim(e){
-    const r=tgt.getBoundingClientRect(), R=Math.min(r.width,r.height)/2-6;
-    user.x=clamp((e.clientX-r.left-r.width/2)/R,-1.2,1.2); user.y=clamp((e.clientY-r.top-r.height/2)/R,-1.2,1.2);
-    user.last=performance.now();
-    if(!user.active){ user.active=true; shotsLeft=10; total=0; combo=0; hits=[]; renderShots();
-      ["lastRing"].forEach(id=>document.getElementById(id).textContent="—"); document.getElementById("total").textContent="0"; document.getElementById("combo").textContent="×0"; setHint(); }
+  function crHud(){
+    const lit=net.filter(n=>n.lit).length;
+    crEl.lit.textContent=crMode==="play"?`${lit} / ${net.length}`:`— / ${net.length}`;
+    crEl.sp.textContent=crMode==="play"?crFired:"—";
+    crEl.left.textContent=crMode==="play"?"●".repeat(crLeft)+"○".repeat(3-crLeft):"●●●";
   }
-  tgt.addEventListener("pointermove",toAim);
-  tgt.addEventListener("pointerdown",e=>{ toAim(e); aim.x=user.x; aim.y=user.y; fire(); e.preventDefault(); });
-  tgt.addEventListener("pointerleave",()=>{ user.last=performance.now()-3500; });
-
-  function drawHud(t){
-    const {x,w,h}=T, cx=w/2, cy=h/2, R=Math.min(w,h)/2-6;
-    x.clearRect(0,0,w,h);
-    for(let i=10;i>=1;i--){x.beginPath();x.arc(cx,cy,R*i/10,0,6.283);x.fillStyle=i<=3?"rgba(255,255,255,.18)":"rgba(255,255,255,.04)";x.fill();x.strokeStyle="rgba(255,255,255,.3)";x.lineWidth=1;x.stroke();}
-    flashes.forEach(f=>{const k=(t-f.t)/450;x.strokeStyle=`rgba(245,158,11,${1-k})`;x.lineWidth=2;x.beginPath();x.arc(cx+f.x*R,cy+f.y*R,4+k*22,0,6.283);x.stroke();});
-    x.fillStyle="#fff";hits.forEach(p=>{x.beginPath();x.arc(cx+p.x*R,cy+p.y*R,3.5,0,6.283);x.fill();});
-    const ax=cx+aim.x*R, ay=cy+aim.y*R;
-    x.strokeStyle="#f59e0b";x.lineWidth=2;
-    x.beginPath();x.arc(ax,ay,12,0,6.283);x.moveTo(ax-20,ay);x.lineTo(ax-6,ay);x.moveTo(ax+6,ay);x.lineTo(ax+20,ay);x.moveTo(ax,ay-20);x.lineTo(ax,ay-6);x.moveTo(ax,ay+6);x.lineTo(ax,ay+20);x.stroke();
-    const tr=TR, mid=tr.h/2, k=focus/100;
-    tr.x.clearRect(0,0,tr.w,tr.h);
-    tr.x.strokeStyle="rgba(255,255,255,.12)";tr.x.beginPath();tr.x.moveTo(0,mid+.5);tr.x.lineTo(tr.w,mid+.5);tr.x.stroke();
-    tr.x.strokeStyle="#fff";tr.x.lineWidth=1.4;tr.x.beginPath();
-    for(let px=0;px<=tr.w;px+=1.5){
-      const s=px/tr.w*2+t/3000;
-      const y=(1-k)*.8*Math.sin(6.283*10*s)+k*.35*Math.sin(6.283*20*s+1)+.18*seed[Math.floor(Math.abs(s*400))%seed.length];
-      const py=mid-y*tr.h*.4; px===0?tr.x.moveTo(px,py):tr.x.lineTo(px,py);
-    }
-    tr.x.stroke();
+  function fireN(k,t){
+    const n=net[k]; n.last=t; n.v=RESET; crLast=t;
+    if(crMode==="play"){ n.lit=true; crFired++; }
+    syn.forEach(s=>{ if(s.i===k){ spikes.push({s,t0:t,w:s.w*s.eff}); s.eff*=.62; } });
   }
+  function input(k,dv,t){
+    const n=net[k]; if(t-n.last<REFRAC) return;
+    n.v+=dv; if(n.v>=TH) fireN(k,t);
+  }
+  function stim(px,py,t){
+    let best=-1,bd=1e9; net.forEach((n,k)=>{const d=Math.hypot(n.x-px,n.y-py); if(d<bd){bd=d;best=k;}});
+    if(best<0||bd>90) return false;
+    net.forEach((n,k)=>{ if(k!==best && Math.hypot(n.x-px,n.y-py)<60) input(k,8,t); });
+    if(t-net[best].last>=REFRAC) fireN(best,t);
+    return true;
+  }
+  function crStep(t){
+    if(!CR) return; const dt=Math.min(50,t-(crNow||t)); crNow=t;
+    net.forEach(n=>{ n.v+=(REST-n.v)*dt/TAU; });
+    syn.forEach(s=>{ s.eff+=(1-s.eff)*dt/2500; });
+    { const due=[]; spikes=spikes.filter(sp=>{ if(t-sp.t0>=sp.s.delay){ due.push(sp); return false;} return true; }); due.forEach(sp=>input(sp.s.j,sp.w,t)); }
+    if(crMode==="demo" && t-crDemoAt>2600){ crDemoAt=t; const n=net[Math.floor(Math.random()*net.length)]; stim(n.x,n.y,t); }
+    if(crMode==="play"){ crHud();
+      if(crLeft===0 && spikes.length===0 && t-crLast>700 && crEl.over.hidden) crEnd(); }
+  }
+  function crEnd(){
+    const lit=net.filter(n=>n.lit).length, pct=Math.round(lit/net.length*100);
+    crEl.ot.textContent=`点亮了 ${lit} / ${net.length} 个神经元（${pct}%）`;
+    crEl.ox.textContent=pct>=70?"大脑风暴！你找到了连锁反应的关键位置。":pct>=40?"不错的连锁反应。试试点在兴奋性神经元密集的地方。":"信号很快就停下了。抑制性神经元（粉色）会刹车，避开它们试试。";
+    crEl.over.hidden=false; crEl.badge.textContent="本局结束";
+  }
+  function crBez(s,u){const a=net[s.i],b=net[s.j],v=1-u;return [v*v*a.x+2*v*u*s.cx+u*u*b.x, v*v*a.y+2*v*u*s.cy+u*u*b.y];}
+  function crDraw(t){
+    if(!CR) return; const {x,w,h}=CR; x.clearRect(0,0,w,h);
+    syn.forEach(s=>{ const a=net[s.i],b=net[s.j], hov=s.i===crHover;
+      x.strokeStyle=`rgba(${a.inh?INH:EXC},${hov?.7:.14})`; x.lineWidth=hov?1.6:1;
+      x.beginPath(); x.moveTo(a.x,a.y); x.quadraticCurveTo(s.cx,s.cy,b.x,b.y); x.stroke();
+      if(hov){const [px,py]=crBez(s,.92); x.fillStyle=`rgba(${a.inh?INH:EXC},.9)`; x.beginPath(); x.arc(px,py,2.2,0,6.283); x.fill();}
+    });
+    x.globalCompositeOperation="lighter";
+    spikes.forEach(sp=>{ const u=clamp((t-sp.t0)/sp.s.delay,0,1), [px,py]=crBez(sp.s,u), c=net[sp.s.i].inh?INH:EXC;
+      const g=x.createRadialGradient(px,py,0,px,py,9); g.addColorStop(0,`rgba(${c},1)`); g.addColorStop(1,`rgba(${c},0)`);
+      x.fillStyle=g; x.beginPath(); x.arc(px,py,9,0,6.283); x.fill(); });
+    net.forEach((n,k)=>{ const c=n.inh?INH:EXC, since=t-n.last;
+      if(since<420){ const q=since/420; x.strokeStyle=`rgba(${c},${1-q})`; x.lineWidth=2; x.beginPath(); x.arc(n.x,n.y,6+q*20,0,6.283); x.stroke();
+        const g=x.createRadialGradient(n.x,n.y,0,n.x,n.y,22); g.addColorStop(0,`rgba(${c},${.8*(1-q)})`); g.addColorStop(1,`rgba(${c},0)`); x.fillStyle=g; x.beginPath(); x.arc(n.x,n.y,22,0,6.283); x.fill(); }
+    });
+    x.globalCompositeOperation="source-over";
+    net.forEach((n,k)=>{ const c=n.inh?INH:EXC, dep=clamp((n.v-REST)/(TH-REST),0,1);
+      x.fillStyle=n.lit?`rgba(${c},.95)`:`rgba(${c},${.18+.6*dep})`; x.strokeStyle=`rgba(${c},.95)`; x.lineWidth=1.5;
+      x.beginPath(); if(n.inh){x.moveTo(n.x,n.y-6.5);x.lineTo(n.x+6.5,n.y);x.lineTo(n.x,n.y+6.5);x.lineTo(n.x-6.5,n.y);x.closePath();} else x.arc(n.x,n.y,5.5,0,6.283);
+      x.fill(); x.stroke();
+      if(k===crHover){ x.strokeStyle="rgba(255,255,255,.8)"; x.lineWidth=1; x.beginPath(); x.arc(n.x,n.y,11,0,6.283); x.stroke(); }
+    });
+    if(crHover>=0){ const n=net[crHover], label=`${n.inh?"抑制性":"兴奋性"} · ${Math.round(n.v)} mV`;
+      x.font="12px Inter, system-ui, sans-serif"; const tw=x.measureText(label).width+14, lx=clamp(n.x+12,4,w-tw-4), ly=clamp(n.y-30,4,h-24);
+      x.fillStyle="rgba(0,0,0,.75)"; x.fillRect(lx,ly,tw,20); x.fillStyle="#fff"; x.fillText(label,lx+7,ly+14); }
+  }
+  function crPos(e){const r=crCv.getBoundingClientRect(); return [e.clientX-r.left,e.clientY-r.top];}
+  crCv.addEventListener("pointermove",e=>{const [px,py]=crPos(e); let best=-1,bd=18; net.forEach((n,k)=>{const d=Math.hypot(n.x-px,n.y-py); if(d<bd){bd=d;best=k;}}); crHover=best;});
+  crCv.addEventListener("pointerleave",()=>crHover=-1);
+  crCv.addEventListener("pointerdown",e=>{
+    e.preventDefault(); if(!crEl.over.hidden) return;
+    const t=performance.now(), [px,py]=crPos(e);
+    if(crMode==="demo") crReset(true);
+    if(crLeft>0 && stim(px,py,t)){ crLeft--; crHud(); }
+    if(reduce && !crOwnLoop){ crOwnLoop=true; const L=tt=>{crStep(tt);crDraw(tt);requestAnimationFrame(L);}; requestAnimationFrame(L); }
+  });
+  document.getElementById("crAgain").addEventListener("click",()=>crReset(true));
+  document.getElementById("crNew").addEventListener("click",()=>{ const wasPlay=crMode!=="demo"; crBuild(); if(wasPlay) crReset(true); });
 
   /* scroll effects */
   const hero=document.getElementById("top"), heroText=document.getElementById("heroText"), hud=document.getElementById("hud");
@@ -1793,12 +1879,12 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
   if(reduce) addEventListener("scroll",()=>drawNeurons(0),{passive:true});
 
   /* boot */
-  function sizeAll(){initField();initHud();initNeurons();}
+  function sizeAll(){initField();crBuild();initNeurons();}
   let rz; addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{sizeAll();if(reduce)frame(0);},150);});
-  sizeAll(); renderShots(); onScroll();
+  sizeAll(); onScroll();
   addEventListener("load",()=>{initNeurons();if(reduce)frame(0);});
   document.querySelectorAll("details").forEach(d=>d.addEventListener("toggle",()=>{initNeurons();if(reduce)frame(0);}));
-  function frame(t){drawField(t);stepHud(t);drawHud(t);drawNeurons(t);}
+  function frame(t){drawField(t);crStep(t);crDraw(t);drawNeurons(t);}
   if(reduce){frame(0);}
   else{const loop=t=>{frame(t);requestAnimationFrame(loop);};requestAnimationFrame(loop);}
 })();
