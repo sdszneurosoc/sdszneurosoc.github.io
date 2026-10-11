@@ -441,7 +441,8 @@ body.locked{overflow:hidden}
 .spot-box p{margin:0;font-size:14px;color:hsl(0 0% 80%);line-height:1.8}
 /* contents */
 #contents{padding-block:72px}
-.toc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
+.toc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
+@media (max-width:1100px){.toc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:900px){.toc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.toc-grid{grid-template-columns:1fr}}
 .toc-card{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;padding:18px;border-radius:16px;text-decoration:none;color:var(--fg);background:rgba(13,13,13,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--border);transition:transform .2s,border-color .2s,box-shadow .2s}
@@ -453,6 +454,53 @@ body.locked{overflow:hidden}
 .toc-txt small{font-size:13px;color:var(--muted);margin-top:4px}
 .toc-arrow{color:rgb(var(--c));font-size:18px;transition:transform .2s}
 .toc-card:hover .toc-arrow{transform:translateX(4px)}
+.acts.acts4{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:620px){.acts.acts4{grid-template-columns:1fr}}
+.acts .hl{display:block;margin-top:8px;font-style:normal;font-size:13px;color:hsl(160 60% 70%)}
+.albums{display:grid;gap:24px}
+.album{border-top:1px solid var(--border);padding-top:18px;display:grid;gap:14px}
+.album-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.album-head b{font-size:18px;font-weight:600}
+.a-date{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.a-where{font-size:13px;color:var(--muted)}
+.photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:560px){.photos{grid-template-columns:1fr 1fr}}
+.ph-empty{aspect-ratio:4/3;border:1px dashed var(--border);border-radius:12px;display:grid;place-content:center;justify-items:center;gap:8px;color:var(--muted);font-size:13px;background:rgba(13,13,13,.5)}
+.ph-empty svg{width:28px;height:28px}
+.photos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}
+.courses{border-top:1px solid var(--border);padding-top:24px;margin-top:8px;display:grid;gap:14px}
+.course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:720px){.course-grid{grid-template-columns:1fr}}
+.course{display:flex;flex-direction:column;gap:6px;padding:20px;border-radius:14px;border:1px solid var(--border);background:rgba(13,13,13,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);text-decoration:none;color:var(--fg);transition:border-color .2s,transform .2s}
+.course:hover{border-color:rgba(255,255,255,.4);transform:translateY(-2px)}
+.c-src{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.course b{font-size:18px;font-weight:600;line-height:1.35}
+.c-by{font-size:13px;color:var(--muted)}
+.c-note{font-size:14px;color:hsl(0 0% 80%);line-height:1.7}
+.c-go{margin-top:auto;padding-top:6px;font-size:13px;color:hsl(200 70% 75%)}
+.photos.masonry{display:block;columns:3 220px;column-gap:12px}
+.ph{display:block;width:100%;padding:0;margin:0 0 12px;border:0;border-radius:12px;overflow:hidden;cursor:zoom-in;background:var(--card);break-inside:avoid}
+.ph img{display:block;width:100%;height:auto;aspect-ratio:auto;border-radius:0;transition:transform .3s}
+.ph:hover img{transform:scale(1.03)}
+.phbox{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;padding:24px 56px}
+.phbox figure{margin:0;display:grid;gap:10px;justify-items:center;max-width:100%}
+.phbox img{max-width:100%;max-height:82vh;border-radius:10px;display:block}
+.phbox figcaption{font-size:13px;color:var(--muted)}
+.ph-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:rgba(0,0,0,.5);color:#fff;font-size:26px;line-height:1;cursor:pointer}
+.ph-nav.prev{left:10px}.ph-nav.next{right:10px}
+.ph-close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:14px}
+@media (max-width:560px){.phbox{padding:16px 8px}.ph-nav{top:auto;bottom:16px;transform:none}}
+#courses .course-grid{margin-top:8px}
+#courses .hint{margin-top:14px}
+.block.compact{padding-block:64px}
+.block.compact .lead{margin-bottom:20px}
+.sec-fold > summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border:1px solid var(--border);border-radius:999px;font-size:14px;font-weight:500;color:var(--fg);background:rgba(13,13,13,.62);transition:border-color .2s}
+.sec-fold > summary::-webkit-details-marker{display:none}
+.sec-fold > summary::after{content:"+";color:var(--muted);font-size:18px;line-height:1}
+.sec-fold[open] > summary::after{content:"−"}
+.sec-fold > summary:hover{border-color:rgba(255,255,255,.45)}
+.sec-fold[open] > summary span{color:var(--muted)}
+.sec-fold-in{margin-top:28px}
 footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
 
 /* entrance */
@@ -484,11 +532,13 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
           <div class="menu" id="dropMenu" hidden>
             <a href="#what">讲座与交流</a>
             <a href="#bee">Brain Bee 备赛</a>
+            <a href="#gallery">活动相册</a>
           </div>
         </div>
         <a href="#explore">探索大脑</a>
         <a href="#news">Brain News</a>
         <a href="#learn">读书指南</a>
+        <a href="#courses">课程</a>
         <a href="#art">Art</a>
         <a href="#join">联系我们</a>
       </div>
@@ -560,9 +610,19 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
           <span class="toc-txt"><b>神经元艺术</b><span class="serif">Art of Neurons</span><small>每次打开都不一样的神经元画作</small></span>
           <span class="toc-arrow" aria-hidden="true">→</span>
         </a>
+        <a class="toc-card" href="#courses" style="--c:120,160,240">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M10 9l4 2-4 2z"/><path d="M8 21h8"/></svg></span>
+          <span class="toc-txt"><b>在线课程</b><span class="serif">Online Courses</span><small>MIT 与剑桥的免费公开课</small></span>
+          <span class="toc-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="toc-card" href="#gallery" style="--c:255,210,120">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/></svg></span>
+          <span class="toc-txt"><b>活动相册</b><span class="serif">Gallery</span><small>每次活动的照片存档</small></span>
+          <span class="toc-arrow" aria-hidden="true">→</span>
+        </a>
         <a class="toc-card" href="#what" style="--c:240,120,90">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.6 6.3L21 9l-5 4.3L17.6 20 12 16.6 6.4 20 8 13.3 3 9l6.4-.7z"/></svg></span>
-          <span class="toc-txt"><b>我们做什么</b><span class="serif">What we do</span><small>讲座、Brain Bee、Brain Day、公益</small></span>
+          <span class="toc-txt"><b>我们做什么</b><span class="serif">What we do</span><small>讲座、学习与分享、科普、公益、Brain Bee</small></span>
           <span class="toc-arrow" aria-hidden="true">→</span>
         </a>
         <a class="toc-card" href="#join" style="--c:120,230,200">
@@ -778,10 +838,13 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
     </div>
   </section>
 
-  <section class="block px" id="learn">
+  <section class="block px compact" id="learn">
     <div class="inner">
       <h2 class="h2">读书指南<span class="serif">Reading Guide</span></h2>
       <p class="lead">社团推荐的两本书：先用 Brain Facts 建立整体框架，再用 Exploring the Brain 把感兴趣的部分读深读透。</p>
+      <details class="sec-fold">
+        <summary><span>展开读书指南 · Brain Facts 与 Exploring the Brain</span></summary>
+        <div class="sec-fold-in">
 
       <!-- Book 1 -->
       <article class="book" aria-labelledby="bk1">
@@ -947,13 +1010,42 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
         <a href="https://www.brainfacts.org/" target="_blank" rel="noopener">BrainFacts.org · 免费科普文章与视频 ↗</a>
         <a href="https://www.thebrainbee.org/" target="_blank" rel="noopener">The International Brain Bee 官网 ↗</a>
       </div>
+        </div>
+      </details>
     </div>
   </section>
 
-  <section class="block px" id="art">
+  <section class="block px" id="courses">
+    <div class="inner">
+      <h2 class="h2">在线课程<span class="serif">Online Courses</span></h2>
+      <p class="lead">免费的大学公开课，适合想系统学习的 Neuronauts。</p>
+        <div class="course-grid">
+          <a class="course" href="https://ocw.mit.edu/courses/9-13-the-human-brain-spring-2019/resources/lecture-1-introduction/" target="_blank" rel="noopener">
+            <span class="c-src">MIT OpenCourseWare · 免费</span>
+            <b>9.13 The Human Brain</b>
+            <span class="c-by">Nancy Kanwisher · 2019 春季</span>
+            <span class="c-note">大学认知科学与神经科学的标准入门课，每节都有视频，全部资源免费。</span>
+            <span class="c-go">打开课程 ↗</span>
+          </a>
+          <a class="course" href="https://www.coursera.org/learn/introduction-to-cognitive-psychology-and-neuropsychology" target="_blank" rel="noopener">
+            <span class="c-src">Coursera · University of Cambridge</span>
+            <b>Introduction to Cognitive Psychology and Neuropsychology</b>
+            <span class="c-by">约 8–10 小时 · 零基础</span>
+            <span class="c-note">讲认知心理学和神经心理学的基本概念与研究方法。</span>
+            <span class="c-go">打开课程 ↗</span>
+          </a>
+        </div>
+      
+    </div>
+  </section>
+
+  <section class="block px compact" id="art">
     <div class="inner">
       <h2 class="h2">神经元艺术<span class="serif">Art of Neurons</span></h2>
       <p class="lead">一百多年前，卡哈尔用一支笔画出了神经元，也开启了现代神经科学。这里的作品由社团用代码一笔一笔“画”出来，每次打开网页都是独一无二的一幅；点开大图，还能让它再画一幅。</p>
+      <details class="sec-fold">
+        <summary><span>展开 6 幅神经元画作</span></summary>
+        <div class="sec-fold-in">
       <div class="art-grid" id="artGrid">
         <div class="art-submit">
           <span class="art-plus" aria-hidden="true">+</span>
@@ -964,6 +1056,8 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
           <span class="art-tip">邮件打不开的话，复制邮箱用你常用的邮箱发送，附上作品图片即可。</span>
         </div>
       </div>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -971,17 +1065,41 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
     <div class="inner">
       <h2 class="h2">我们做什么<span class="serif">What we do</span></h2>
       <p class="lead">欢迎所有对脑科学感兴趣的同学，不需要任何基础，每一位 Neuronaut 都从好奇开始。</p>
-      <div class="acts">
+      <div class="acts acts4">
         <div><b>讲座与交流</b><span>脑科学讲座、研究前沿分享、学长学姐经验交流</span></div>
-        <div><b>学生讲座</b><span>社团内部分享会，交流研究与学习心得</span></div>
-        <div><b>科普与宣传</b><span>脑科学知识科普，校内外活动与展览</span></div>
-        <div><b>Brain Day</b><span>互动体验与实验，亲手接触脑科学</span></div>
+        <div><b>学习与分享</b><span>一起学：学习心得交流、读书会与 journal club、在线课程推荐</span></div>
+        <div><b>科普与宣传</b><span>脑科学知识科普，校内外活动与展览</span><em class="hl">Highlight · Brain Day：互动体验与实验，亲手接触脑科学</em></div>
         <div><b>公益慈善</b><span>关注脑部疾病，参与志愿活动</span></div>
-        <div><b>Brain Bee</b><span>脑科学竞赛备赛辅导</span></div>
       </div>
       <div class="bee" id="bee">
         <span class="serif">Brain Bee</span>
         <p>区赛前社团会开设<b>学生讲堂</b>，串讲知识点。感兴趣请私聊社长，身边有意向的同学也欢迎推荐。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block px" id="gallery">
+    <div class="inner">
+      <h2 class="h2">活动相册<span class="serif">Gallery</span></h2>
+      <p class="lead">每次活动的照片都会存档在这里，按时间倒序排列。</p>
+      <div class="albums">
+        <article class="album">
+          <div class="album-head"><span class="a-date">2026.10.10</span><b>百团大战 · 脑控游戏体验</b><span class="a-where">本校操场 · 12 张</span></div>
+          <div class="photos masonry">
+            <button type="button" class="ph" data-i="1"><img src="photos/fair-01-s.jpg" alt="百团大战脑控游戏体验现场照片 1" loading="lazy" decoding="async"></button>
+            <button type="button" class="ph" data-i="2"><img src="photos/fair-02-s.jpg" alt="百团大战脑控游戏体验现场照片 2" loading="lazy" decoding="async"></button>
+            <button type="button" class="ph" data-i="3"><img src="photos/fair-03-s.jpg" alt="百团大战脑控游戏体验现场照片 3" loading="lazy" decoding="async"></button>
+            <button type="button" class="ph" data-i="4"><img src="photos/fair-04-s.jpg" alt="百团大战脑控游戏体验现场照片 4" loading="lazy" decoding="async"></button>
+            <button type="button" class="ph" data-i="5"><img src="photos/fair-05-s.jpg" alt="百团大战脑控游戏体验现场照片 5" loading="lazy" decoding="async"></button>
+            <button type="button" class="ph" data-i="6"><img src="photos/fair-06-s.jpg" alt="百团大战脑控游戏体验现场照片 6" loading="lazy" decoding="async"></button>
+            <button type="button" class="ph" data-i="7"><img src="photos/fair-07-s.jpg" alt="百团大战脑控游戏体验现场照片 7" loading="lazy" decoding="async"></button>
+            <button type="button" class="ph" data-i="8"><img src="photos/fair-08-s.jpg" alt="百团大战脑控游戏体验现场照片 8" loading="lazy" decoding="async"></button>
+            <button type="button" class="ph" data-i="9"><img src="photos/fair-09-s.jpg" alt="百团大战脑控游戏体验现场照片 9" loading="lazy" decoding="async"></button>
+            <button type="button" class="ph" data-i="10"><img src="photos/fair-10-s.jpg" alt="百团大战脑控游戏体验现场照片 10" loading="lazy" decoding="async"></button>
+            <button type="button" class="ph" data-i="11"><img src="photos/fair-11-s.jpg" alt="百团大战脑控游戏体验现场照片 11" loading="lazy" decoding="async"></button>
+            <button type="button" class="ph" data-i="12"><img src="photos/fair-12-s.jpg" alt="百团大战脑控游戏体验现场照片 12" loading="lazy" decoding="async"></button>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -1247,6 +1365,12 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
       <span class="hint">每一幅都由代码随机生成，世界上只有这一张。</span>
     </div>
   </div>
+</div>
+<div class="phbox" id="phBox" hidden role="dialog" aria-modal="true" aria-label="活动照片">
+  <button type="button" class="ph-nav prev" id="phPrev" aria-label="上一张">‹</button>
+  <figure><img id="phImg" alt=""><figcaption id="phCap"></figcaption></figure>
+  <button type="button" class="ph-nav next" id="phNext" aria-label="下一张">›</button>
+  <button type="button" class="r-close ph-close" id="phClose" aria-label="关闭">✕</button>
 </div>
 <footer class="px"><span class="foot-brand"><span class="logo-img" aria-hidden="true"></span>© 2026 SDSZ 脑科学社 · Neuroscience Society</span><span>Neuron the Move 🧠 · 静息电位 −70 mV · 好奇心 ∞</span></footer>
 </main>
@@ -1565,6 +1689,25 @@ footer{border-top:1px solid var(--border);padding-block:32px;color:var(--muted);
     })(t0);
   });
   setTab("brain");
+
+
+  /* activity photo lightbox */
+  const phs=[...document.querySelectorAll(".ph")], phBox=document.getElementById("phBox"), phImg=document.getElementById("phImg"), phCap=document.getElementById("phCap");
+  let phI=0, phLast=null;
+  function phShow(i){ phI=(i+phs.length)%phs.length; const n=phs[phI].dataset.i.padStart(2,"0");
+    phImg.src=`photos/fair-${n}.jpg`; phImg.alt=phs[phI].querySelector("img").alt; phCap.textContent=`2026.10.10 · 百团大战 · 脑控游戏体验 · ${phI+1} / ${phs.length}`; }
+  phs.forEach((b,i)=>b.addEventListener("click",()=>{ phLast=b; phShow(i); phBox.hidden=false; document.body.classList.add("locked"); document.getElementById("phClose").focus({preventScroll:true}); }));
+  const phClose=()=>{ phBox.hidden=true; document.body.classList.remove("locked"); if(phLast)phLast.focus({preventScroll:true}); };
+  document.getElementById("phClose").addEventListener("click",phClose);
+  document.getElementById("phPrev").addEventListener("click",()=>phShow(phI-1));
+  document.getElementById("phNext").addEventListener("click",()=>phShow(phI+1));
+  phBox.addEventListener("click",e=>{ if(e.target===phBox) phClose(); });
+  document.addEventListener("keydown",e=>{ if(phBox.hidden) return; if(e.key==="Escape")phClose(); if(e.key==="ArrowLeft")phShow(phI-1); if(e.key==="ArrowRight")phShow(phI+1); });
+
+
+  /* collapsed sections: open on demand, repaint art when opened */
+  document.querySelectorAll(".sec-fold").forEach(d=>d.addEventListener("toggle",()=>{ if(d.open && d.closest("#art")) paintGrid(); }));
+  document.querySelectorAll('a[href="#learn"],a[href="#art"]').forEach(a=>a.addEventListener("click",()=>{ const d=document.querySelector(a.getAttribute("href")+" .sec-fold"); if(d) d.open=true; }));
 
   /* canvas helper */
   function fit(c){const r=c.getBoundingClientRect(),d=devicePixelRatio||1;c.width=Math.max(1,r.width*d);c.height=Math.max(1,r.height*d);const x=c.getContext("2d");x.setTransform(d,0,0,d,0,0);return {x,w:r.width,h:r.height};}
